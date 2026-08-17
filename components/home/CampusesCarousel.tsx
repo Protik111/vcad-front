@@ -15,29 +15,49 @@ import "swiper/css/effect-coverflow";
 
 const INITIAL_SLIDE = 1;
 
+/** Same photo height on every slide (active or peek) — only the active
+ * card's name bar adds extra height on top of it. */
+const IMAGE_HEIGHT = "h-56 sm:h-72 lg:h-80";
+
+/** Matches each slide's own width classes, so the arrow overlay lines
+ * up with wherever the (always-centered) active slide currently sits. */
+const SLIDE_WIDTH = "w-[75vw] max-w-160 sm:w-[60vw] lg:w-[46vw]";
+
 /**
  * "Explore our campuses" carousel: a coverflow-style carousel where
- * the active campus is shown large and centered (the second campus on
- * first load), with the neighbouring campuses receding behind it at
- * half opacity on either side. Built on Swiper for real touch/
- * keyboard/drag support.
+ * the active campus is shown large, raised 150px above the
+ * neighbouring campuses (scaled down on smaller screens) which recede
+ * behind it at half opacity on either side, and cycles infinitely.
+ * Built on Swiper for real touch/keyboard/drag support.
  *
- * Loop mode is intentionally off: Swiper's loop needs roughly double
- * the visible slide count to wrap reliably, and with only a few
- * campuses it gets stuck instead. Boundaries are handled the plain
- * way instead — arrows disable at the first/last slide.
+ * Infinite cycling is done manually (wrap to the first/last slide at
+ * the boundary) rather than via Swiper's native `loop`: loop mode
+ * needs to generate duplicate buffer slides, and with `slidesPerView:
+ * "auto"` and only a few real slides it silently fails to create them
+ * — confirmed via the live swiper instance (`slides.length` never
+ * grows past the real slide count, and it gets permanently stuck at
+ * `isEnd`). A manual wrap sidesteps that entirely and is easy to
+ * verify correct.
+ *
+ * The prev/next arrows live in a stable overlay outside the slides
+ * rather than inside the active slide's own markup, since a button
+ * rendered inside a per-slide conditional is more fragile to wire up
+ * reliably than one stable overlay positioned to match the active
+ * slide's band.
+ *
+ * The "raised" active slide is done with flex self-alignment
+ * (active = self-start, peeks = self-end inside a taller shared row)
+ * rather than a transform — a transform would just get clipped by
+ * Swiper's own `overflow: hidden` instead of actually lifting it.
  */
 export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
   const swiperRef = useRef<SwiperInstance | null>(null);
   const initialIndex = Math.min(INITIAL_SLIDE, campuses.length - 1);
   const [activeIndex, setActiveIndex] = useState(initialIndex);
-  const [isBeginning, setIsBeginning] = useState(initialIndex === 0);
-  const [isEnd, setIsEnd] = useState(initialIndex >= campuses.length - 1);
 
-  const syncBoundaries = (swiper: SwiperInstance) => {
-    setActiveIndex(swiper.activeIndex);
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
+  const goToOffset = (offset: 1 | -1) => {
+    const next = (activeIndex + offset + campuses.length) % campuses.length;
+    swiperRef.current?.slideTo(next);
   };
 
   return (
@@ -54,16 +74,17 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
           }
         />
 
-        <div className="mt-10 sm:mt-14">
+        <div className="relative mt-10 sm:mt-14">
           <Swiper
             modules={[A11y, Keyboard, EffectCoverflow]}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
-              syncBoundaries(swiper);
+              setActiveIndex(swiper.activeIndex);
             }}
-            onSlideChange={syncBoundaries}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             initialSlide={initialIndex}
             centeredSlides
+            // loop={true}s
             effect="coverflow"
             coverflowEffect={{
               rotate: 0,
@@ -78,7 +99,7 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
               nextSlideMessage: "Next campus",
             }}
             slidesPerView="auto"
-            className="h-70! sm:h-90! lg:h-105!"
+            className="h-[284px]! sm:h-[388px]! lg:h-[470px]!"
           >
             {campuses.map((campus, i) => {
               const isActive = i === activeIndex;
@@ -96,24 +117,29 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
               return (
                 <SwiperSlide
                   key={campus.id}
-                  className="h-full! w-[75vw]! max-w-160 sm:w-[60vw]! lg:w-[46vw]!"
+                  className={
+                    isActive
+                      ? `self-start! ${SLIDE_WIDTH}!`
+                      : `self-end! ${SLIDE_WIDTH}!`
+                  }
                 >
                   {isActive ? (
-                    <div className="group relative h-full w-full overflow-hidden rounded-card">
-                      {imageEl}
-                      <div className="absolute inset-0 bg-linear-to-t from-deep/70 via-transparent to-transparent" />
+                    <div className="relative flex flex-col overflow-hidden rounded-card">
+                      <div className={`relative ${IMAGE_HEIGHT}`}>
+                        {imageEl}
 
-                      <Link
-                        href="/campuses"
-                        className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-                      >
-                        <span className="text-micro font-semibold uppercase tracking-[0.16em]">
-                          Discover
-                        </span>
-                      </Link>
+                        <Link
+                          href="/campuses"
+                          className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                        >
+                          <span className="text-micro font-semibold uppercase tracking-[0.16em]">
+                            Discover
+                          </span>
+                        </Link>
+                      </div>
 
-                      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 sm:p-8">
-                        <span className="rounded-pill bg-deep/70 px-5 py-2.5 text-default font-semibold uppercase tracking-[0.06em] text-white backdrop-blur-sm">
+                      <div className="flex h-14 shrink-0 items-center justify-center bg-navy/85 sm:h-16">
+                        <span className="text-default font-semibold uppercase tracking-[0.06em] text-white">
                           {campus.name}
                         </span>
                       </div>
@@ -123,7 +149,7 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
                       type="button"
                       onClick={() => swiperRef.current?.slideTo(i)}
                       aria-label={`Show ${campus.name}`}
-                      className="relative block h-full w-full cursor-pointer overflow-hidden rounded-card opacity-50 brightness-75 transition-[opacity,filter] duration-300 hover:opacity-70"
+                      className={`relative block w-full cursor-pointer overflow-hidden rounded-card opacity-50 brightness-75 transition-[opacity,filter] duration-300 hover:opacity-70 ${IMAGE_HEIGHT}`}
                     >
                       {imageEl}
                     </button>
@@ -133,25 +159,32 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
             })}
           </Swiper>
 
+          {/* Arrow overlay: sized/positioned to match the active slide's
+              image band, kept outside the Swiper's own slide tree so
+              it's one stable pair of buttons rather than per-slide
+              markup. Needs an explicit z-index — the coverflow effect's
+              3D transforms put the slides in their own stacking
+              context, so a later sibling with z-index:auto can still
+              lose hit-testing to them despite painting on top. */}
           <div
-            className="mt-6 flex items-center justify-center gap-3"
-            role="group"
-            aria-label="Campus carousel controls"
+            className={`pointer-events-none absolute inset-x-0 top-0 z-20 mx-auto flex items-center justify-between px-4 sm:px-0 ${IMAGE_HEIGHT} ${SLIDE_WIDTH}`}
           >
-            <CircleArrowButton
-              direction="prev"
-              variant="outline"
-              label="Previous campus"
-              onClick={() => swiperRef.current?.slidePrev()}
-              disabled={isBeginning}
-            />
-            <CircleArrowButton
-              direction="next"
-              variant="filled"
-              label="Next campus"
-              onClick={() => swiperRef.current?.slideNext()}
-              disabled={isEnd}
-            />
+            <div className="pointer-events-auto">
+              <CircleArrowButton
+                direction="prev"
+                variant="outline"
+                label="Previous campus"
+                onClick={() => goToOffset(-1)}
+              />
+            </div>
+            <div className="pointer-events-auto">
+              <CircleArrowButton
+                direction="next"
+                variant="filled"
+                label="Next campus"
+                onClick={() => goToOffset(1)}
+              />
+            </div>
           </div>
         </div>
       </Container>
