@@ -10,6 +10,42 @@ export interface CourseSection {
   content: string;
 }
 
+/** One of the six "Course Information" at-a-glance facts. */
+export interface CourseKeyDetails {
+  startDate: string;
+  studyMode: string;
+  location: string;
+  tuitionFee: string;
+  awardingBody: string;
+}
+
+export interface CourseModule {
+  code: string;
+  title: string;
+  credits: number;
+  description: string;
+}
+
+export interface CurriculumYear {
+  year: string;
+  modules: CourseModule[];
+}
+
+export type ContentBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "list"; items: string[] };
+
+export interface AdmissionsAccordionItem {
+  title: string;
+  content: ContentBlock[];
+}
+
+export interface AdmissionsCategory {
+  label: string;
+  items: AdmissionsAccordionItem[];
+}
+
 export interface Course {
   id: string;
   slug: string;
@@ -21,10 +57,13 @@ export interface Course {
   category?: string;
   /** Short summary used on cards and list rows. */
   description?: string;
-  /** Longer copy used on the course detail page. */
+  /** Longer copy used on the course detail page hero. */
   overview?: string;
   heroImage?: string;
   gallery?: string[];
   highlights?: string[];
   sections?: CourseSection[];
+  keyDetails?: CourseKeyDetails;
+  curriculum?: CurriculumYear[];
+  admissions?: AdmissionsCategory[];
 }
