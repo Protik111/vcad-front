@@ -23,7 +23,7 @@ export default function CoursesPage() {
       <section className="py-20 sm:py-28">
         <Container>
           <SectionHeading
-            label="All Courses"
+            label="/All Courses"
             title="Degree Courses"
             aside={
               <p className="text-default text-pale-blue">

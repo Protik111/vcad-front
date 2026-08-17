@@ -15,21 +15,21 @@ export default function CoursesHero() {
       <Container className="relative">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <div className="hidden w-full items-start justify-between md:flex">
-            <div className="relative -mt-2 h-28 w-32 shrink-0 -rotate-2 overflow-hidden rounded-card shadow-2xl lg:h-32 lg:w-36">
+            <div className="relative -mt-2 h-28 w-32 shrink-0 overflow-hidden shadow-2xl lg:h-32 lg:w-36">
               <Image
                 src="/images/courses-hero-left.jpg"
                 alt=""
                 fill
-                sizes="150px"
+                sizes="210px"
                 className="object-cover"
               />
             </div>
-            <div className="relative mt-4 h-36 w-28 shrink-0 rotate-2 overflow-hidden rounded-card shadow-2xl lg:h-44 lg:w-32">
+            <div className="relative mt-4 shrink-0 overflow-hidden shadow-2xl lg:h-44 lg:w-32">
               <Image
-                src="/images/courses-hero-right.png"
+                src="/images/story-life-borough.jpg"
                 alt=""
                 fill
-                sizes="150px"
+                sizes="195px"
                 className="object-cover"
               />
             </div>
@@ -42,7 +42,7 @@ export default function CoursesHero() {
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-page-title">
               Explore Our Courses
             </h1>
-            <p className="max-w-2xl text-body text-pale-blue">
+            <p className="max-w-4xl text-body text-pale-blue">
               Join Victoria College of Arts and Design and experience
               exceptional teaching, cutting-edge facilities, and industry
               connections that prepare you for a rewarding creative career.

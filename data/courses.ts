@@ -13,7 +13,9 @@ import type {
  * that consumes it.
  */
 
-function keyDetails(overrides: Partial<CourseKeyDetails> & Pick<CourseKeyDetails, "tuitionFee">): CourseKeyDetails {
+function keyDetails(
+  overrides: Partial<CourseKeyDetails> & Pick<CourseKeyDetails, "tuitionFee">,
+): CourseKeyDetails {
   return {
     startDate: "November, February",
     studyMode: "Full Time",
@@ -151,10 +153,10 @@ const courses: Course[] = [
     school: "School of Fashion",
     duration: "4 Years",
     category: "Fashion",
-    image: "/images/course-fashion-design.png",
+    image: "/images/courses-hero-right.png",
     imageAlt: "Students reviewing fabric samples in a fashion design studio",
     description:
-      "This course introduces students to creative practice, focusing on theoretical, practical and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication.",
+      "This course introduces students to creative practice, focusing on theoretical, practical and technical components. ",
     overview:
       "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication. As they progress, they engage with methodologies, enhancing understanding of processes and fostering critical thinking, collaboration, and problem-solving.",
     gallery: [
@@ -197,23 +199,65 @@ const courses: Course[] = [
       {
         year: "First Year",
         modules: [
-          { code: "FY01", title: "Design Principles", credits: 20, description: "Core principles of garment design, silhouette and construction." },
-          { code: "FY02", title: "Textiles & Materials", credits: 20, description: "An introduction to fabric properties, sourcing and sustainable materials." },
-          { code: "FY03", title: "Pattern Cutting", credits: 20, description: "Foundational flat pattern cutting and toile development." },
+          {
+            code: "FY01",
+            title: "Design Principles",
+            credits: 20,
+            description:
+              "Core principles of garment design, silhouette and construction.",
+          },
+          {
+            code: "FY02",
+            title: "Textiles & Materials",
+            credits: 20,
+            description:
+              "An introduction to fabric properties, sourcing and sustainable materials.",
+          },
+          {
+            code: "FY03",
+            title: "Pattern Cutting",
+            credits: 20,
+            description:
+              "Foundational flat pattern cutting and toile development.",
+          },
         ],
       },
       {
         year: "Second Year",
         modules: [
-          { code: "SY01", title: "Collection Development", credits: 30, description: "Developing a cohesive mini-collection from concept through to sample." },
-          { code: "SY02", title: "Industry Placement", credits: 30, description: "A supervised placement with an industry partner to build professional experience." },
+          {
+            code: "SY01",
+            title: "Collection Development",
+            credits: 30,
+            description:
+              "Developing a cohesive mini-collection from concept through to sample.",
+          },
+          {
+            code: "SY02",
+            title: "Industry Placement",
+            credits: 30,
+            description:
+              "A supervised placement with an industry partner to build professional experience.",
+          },
         ],
       },
       {
         year: "Third Year",
         modules: [
-          { code: "TY01", title: "Final Collection", credits: 40, description: "An independent final collection, culminating in the graduate showcase." },
-          { code: "TY02", title: "Portfolio & Professional Practice", credits: 20, description: "Preparing a professional portfolio and business plan for entry into the industry." },
+          {
+            code: "TY01",
+            title: "Final Collection",
+            credits: 40,
+            description:
+              "An independent final collection, culminating in the graduate showcase.",
+          },
+          {
+            code: "TY02",
+            title: "Portfolio & Professional Practice",
+            credits: 20,
+            description:
+              "Preparing a professional portfolio and business plan for entry into the industry.",
+          },
         ],
       },
     ],
@@ -229,7 +273,7 @@ const courses: Course[] = [
     image: "/images/course-fashion-media.jpg",
     imageAlt: "Fashion media students planning a marketing campaign",
     description:
-      "Students explore the media and marketing landscape of the fashion industry, building skills in brand strategy, content creation and campaign development across print and digital channels.",
+      "Students explore the media and marketing landscape of the fashion industry, building skills.",
     overview:
       "Students explore the media and marketing landscape of the fashion industry, building skills in brand strategy, content creation and campaign development across print and digital channels. As they progress, they apply these skills to live briefs with industry partners, building an employable, portfolio-ready practice.",
     gallery: [
@@ -240,31 +284,96 @@ const courses: Course[] = [
     keyDetails: keyDetails({ tuitionFee: "£ 9250", location: "Canary Wharf" }),
     curriculum: [
       foundationYear([
-        { code: "FD01", title: "Fundamentals", credits: 30, description: "An introduction to the fashion media landscape, brand storytelling and audience." },
-        { code: "FD02", title: "Thinking Through Making", credits: 30, description: "Hands-on content creation across photography, styling and social formats." },
-        { code: "FD03", title: "Developing Specialist Practice", credits: 30, description: "Developing a personal editorial or marketing voice through applied briefs." },
-        { code: "FD04", title: "Specialist Project", credits: 30, description: "A self-directed campaign project presented in a studio review." },
+        {
+          code: "FD01",
+          title: "Fundamentals",
+          credits: 30,
+          description:
+            "An introduction to the fashion media landscape, brand storytelling and audience.",
+        },
+        {
+          code: "FD02",
+          title: "Thinking Through Making",
+          credits: 30,
+          description:
+            "Hands-on content creation across photography, styling and social formats.",
+        },
+        {
+          code: "FD03",
+          title: "Developing Specialist Practice",
+          credits: 30,
+          description:
+            "Developing a personal editorial or marketing voice through applied briefs.",
+        },
+        {
+          code: "FD04",
+          title: "Specialist Project",
+          credits: 30,
+          description:
+            "A self-directed campaign project presented in a studio review.",
+        },
       ]),
       {
         year: "First Year",
         modules: [
-          { code: "FY01", title: "Brand Strategy", credits: 20, description: "Core principles of brand positioning and audience strategy." },
-          { code: "FY02", title: "Digital Content Creation", credits: 20, description: "Producing content for social, editorial and campaign contexts." },
-          { code: "FY03", title: "Fashion Communication", credits: 20, description: "Writing and visual storytelling for fashion audiences." },
+          {
+            code: "FY01",
+            title: "Brand Strategy",
+            credits: 20,
+            description:
+              "Core principles of brand positioning and audience strategy.",
+          },
+          {
+            code: "FY02",
+            title: "Digital Content Creation",
+            credits: 20,
+            description:
+              "Producing content for social, editorial and campaign contexts.",
+          },
+          {
+            code: "FY03",
+            title: "Fashion Communication",
+            credits: 20,
+            description:
+              "Writing and visual storytelling for fashion audiences.",
+          },
         ],
       },
       {
         year: "Second Year",
         modules: [
-          { code: "SY01", title: "Campaign Development", credits: 30, description: "Developing an integrated marketing campaign from brief to delivery." },
-          { code: "SY02", title: "Industry Placement", credits: 30, description: "A supervised placement with an industry partner." },
+          {
+            code: "SY01",
+            title: "Campaign Development",
+            credits: 30,
+            description:
+              "Developing an integrated marketing campaign from brief to delivery.",
+          },
+          {
+            code: "SY02",
+            title: "Industry Placement",
+            credits: 30,
+            description: "A supervised placement with an industry partner.",
+          },
         ],
       },
       {
         year: "Third Year",
         modules: [
-          { code: "TY01", title: "Final Major Project", credits: 40, description: "An independent campaign project culminating in the graduate showcase." },
-          { code: "TY02", title: "Portfolio & Professional Practice", credits: 20, description: "Preparing a professional portfolio for entry into the industry." },
+          {
+            code: "TY01",
+            title: "Final Major Project",
+            credits: 40,
+            description:
+              "An independent campaign project culminating in the graduate showcase.",
+          },
+          {
+            code: "TY02",
+            title: "Portfolio & Professional Practice",
+            credits: 20,
+            description:
+              "Preparing a professional portfolio for entry into the industry.",
+          },
         ],
       },
     ],
@@ -280,7 +389,7 @@ const courses: Course[] = [
     image: "/images/course-graphic-design.jpg",
     imageAlt: "A student reading a visual communication reference book",
     description:
-      "A studio-based course covering typography, branding and visual communication, preparing students to design across print, digital and motion contexts for real-world briefs.",
+      "A studio-based course covering typography, branding and visual communication, preparing.",
     overview:
       "A studio-based course covering typography, branding and visual communication, preparing students to design across print, digital and motion contexts for real-world briefs. Students build a professional portfolio through live projects with industry partners.",
     gallery: [
@@ -291,31 +400,91 @@ const courses: Course[] = [
     keyDetails: keyDetails({ tuitionFee: "£ 9250", location: "Borough" }),
     curriculum: [
       foundationYear([
-        { code: "FD01", title: "Fundamentals", credits: 30, description: "An introduction to visual language, layout and typographic principles." },
-        { code: "FD02", title: "Thinking Through Making", credits: 30, description: "Hands-on studio work exploring print, screen and material outcomes." },
-        { code: "FD03", title: "Developing Specialist Practice", credits: 30, description: "Developing a personal design practice through applied briefs." },
-        { code: "FD04", title: "Specialist Project", credits: 30, description: "A self-directed project presented in a studio review." },
+        {
+          code: "FD01",
+          title: "Fundamentals",
+          credits: 30,
+          description:
+            "An introduction to visual language, layout and typographic principles.",
+        },
+        {
+          code: "FD02",
+          title: "Thinking Through Making",
+          credits: 30,
+          description:
+            "Hands-on studio work exploring print, screen and material outcomes.",
+        },
+        {
+          code: "FD03",
+          title: "Developing Specialist Practice",
+          credits: 30,
+          description:
+            "Developing a personal design practice through applied briefs.",
+        },
+        {
+          code: "FD04",
+          title: "Specialist Project",
+          credits: 30,
+          description: "A self-directed project presented in a studio review.",
+        },
       ]),
       {
         year: "First Year",
         modules: [
-          { code: "FY01", title: "Typography", credits: 20, description: "Core typographic systems, grids and hierarchy." },
-          { code: "FY02", title: "Brand Identity", credits: 20, description: "Designing visual identity systems for real briefs." },
-          { code: "FY03", title: "Digital Design", credits: 20, description: "Interface and interaction design fundamentals." },
+          {
+            code: "FY01",
+            title: "Typography",
+            credits: 20,
+            description: "Core typographic systems, grids and hierarchy.",
+          },
+          {
+            code: "FY02",
+            title: "Brand Identity",
+            credits: 20,
+            description: "Designing visual identity systems for real briefs.",
+          },
+          {
+            code: "FY03",
+            title: "Digital Design",
+            credits: 20,
+            description: "Interface and interaction design fundamentals.",
+          },
         ],
       },
       {
         year: "Second Year",
         modules: [
-          { code: "SY01", title: "Motion & Interaction", credits: 30, description: "Designing for screen-based and time-based media." },
-          { code: "SY02", title: "Industry Placement", credits: 30, description: "A supervised placement with an industry partner." },
+          {
+            code: "SY01",
+            title: "Motion & Interaction",
+            credits: 30,
+            description: "Designing for screen-based and time-based media.",
+          },
+          {
+            code: "SY02",
+            title: "Industry Placement",
+            credits: 30,
+            description: "A supervised placement with an industry partner.",
+          },
         ],
       },
       {
         year: "Third Year",
         modules: [
-          { code: "TY01", title: "Final Major Project", credits: 40, description: "An independent design project culminating in the graduate showcase." },
-          { code: "TY02", title: "Portfolio & Professional Practice", credits: 20, description: "Preparing a professional portfolio for entry into the industry." },
+          {
+            code: "TY01",
+            title: "Final Major Project",
+            credits: 40,
+            description:
+              "An independent design project culminating in the graduate showcase.",
+          },
+          {
+            code: "TY02",
+            title: "Portfolio & Professional Practice",
+            credits: 20,
+            description:
+              "Preparing a professional portfolio for entry into the industry.",
+          },
         ],
       },
     ],
@@ -325,13 +494,13 @@ const courses: Course[] = [
     id: "business-management",
     slug: "business-and-management",
     title: "CertHE Business & Management",
-    school: "School of Business and Management",
+    school: "School of Business",
     duration: "1 Year",
     category: "Business",
     image: "/images/course-business-management.jpg",
     imageAlt: "Business and management students in a seminar discussion",
     description:
-      "This course introduces students to creative practice, focusing on theoretical, practical and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication.",
+      "This course introduces students to creative practice, focusing on theoretical, practical and technical components.",
     overview:
       "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication. As they progress, they engage with methodologies, enhancing understanding of processes and fostering critical thinking, collaboration, and problem-solving.",
     gallery: [
@@ -339,13 +508,41 @@ const courses: Course[] = [
       "/images/courses-showcase.jpg",
       "/images/story-induction.jpg",
     ],
-    keyDetails: keyDetails({ tuitionFee: "£ 9535", studyMode: "Full Time", location: "Canary Wharf" }),
+    keyDetails: keyDetails({
+      tuitionFee: "£ 9535",
+      studyMode: "Full Time",
+      location: "Canary Wharf",
+    }),
     curriculum: [
       foundationYear([
-        { code: "FD01", title: "Fundamentals", credits: 30, description: "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication." },
-        { code: "FD02", title: "Thinking Through Making", credits: 30, description: "Applying business thinking to practical, project-based briefs." },
-        { code: "FD03", title: "Developing Specialist Practice", credits: 30, description: "Building specialist knowledge in a chosen area of business practice." },
-        { code: "FD04", title: "Specialist Project", credits: 30, description: "A self-directed project consolidating the year's learning." },
+        {
+          code: "FD01",
+          title: "Fundamentals",
+          credits: 30,
+          description:
+            "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication.",
+        },
+        {
+          code: "FD02",
+          title: "Thinking Through Making",
+          credits: 30,
+          description:
+            "Applying business thinking to practical, project-based briefs.",
+        },
+        {
+          code: "FD03",
+          title: "Developing Specialist Practice",
+          credits: 30,
+          description:
+            "Building specialist knowledge in a chosen area of business practice.",
+        },
+        {
+          code: "FD04",
+          title: "Specialist Project",
+          credits: 30,
+          description:
+            "A self-directed project consolidating the year's learning.",
+        },
       ]),
     ],
     admissions: standardAdmissions("5.5"),

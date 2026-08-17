@@ -42,7 +42,12 @@ interface CourseCardProps {
  * scrim; "expanded" splits into a photo top and a solid info panel
  * with school/duration badges, matching the design's highlighted slot.
  */
-export default function CourseCard({ course, variant, className, imageSizes }: CourseCardProps) {
+export default function CourseCard({
+  course,
+  variant,
+  className,
+  imageSizes,
+}: CourseCardProps) {
   const arrowTone = variant === "expanded" ? "magenta" : "navy";
 
   if (variant === "expanded") {
@@ -63,12 +68,14 @@ export default function CourseCard({ course, variant, className, imageSizes }: C
             className="object-cover"
           />
         </div>
-        <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
-          <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-1 flex-col gap-4 p-6 sm:p-6">
+          <div className="flex flex-wrap items-center gap-2 text-[10px]">
             <Badge tone="school">{course.school}</Badge>
             <Badge tone="duration">{course.duration}</Badge>
           </div>
-          <h3 className="text-card-title font-semibold text-white">{course.title}</h3>
+          <h3 className="text-card-title font-semibold text-white">
+            {course.title}
+          </h3>
           <p className="text-default text-pale-blue">{course.description}</p>
           <div className="mt-1">
             <p className="text-default font-semibold text-white">School:</p>
@@ -100,8 +107,12 @@ export default function CourseCard({ course, variant, className, imageSizes }: C
       <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/20 to-transparent" />
       <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-6">
         <div>
-          <h3 className="text-lg font-semibold text-white sm:text-card-title">{course.title}</h3>
-          <p className="mt-2 max-w-xs text-default text-pale-blue">{course.description}</p>
+          <h3 className="text-lg font-semibold text-white sm:text-card-title">
+            {course.title}
+          </h3>
+          <p className="mt-2 max-w-xs text-default text-pale-blue">
+            {course.description}
+          </p>
         </div>
         <ArrowGlyph tone={arrowTone} />
       </div>
