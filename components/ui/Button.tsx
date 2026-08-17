@@ -26,7 +26,7 @@ type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const VARIANT_STYLES = {
   outline:
-    "gap-3 rounded-pill border border-pink py-1.5 pl-6 pr-1.5 hover:bg-pink/10",
+    "gap-8 border border-[#EBECF3] bg-[#912491] px-6 py-3.5 hover:border-pink",
   solid: "gap-8 border border-[#EBECF3] bg-navy px-6 py-3.5 hover:border-pink",
 } as const;
 
@@ -96,7 +96,7 @@ export default function Button({
       {variant === "solid" ? (
         <PlainArrow />
       ) : (
-        arrow !== "none" && <ArrowIcon variant={arrow} />
+        arrow !== "none" && <PlainArrow />
       )}
     </>
   );
