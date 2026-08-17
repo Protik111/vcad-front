@@ -11,7 +11,7 @@ import Tag from "@/components/ui/Tag";
  */
 export default function Hero() {
   return (
-    <section className="overflow-x-hidden pt-8 sm:pt-12 lg:pt-16">
+    <section className="overflow-x-hidden pt-8 sm:pt-12 lg:pt-25">
       <Container className="grid items-center gap-16 lg:grid-cols-2 lg:gap-6">
         <div className="max-w-xl">
           <h1 className="text-[110px] font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-[110px]">
@@ -98,7 +98,7 @@ export default function Hero() {
           </Tag>
           <Tag
             tone="plum"
-            rotate={-4}
+            // rotate={-4}
             className="absolute bottom-[-3%] left-[2%] z-20"
           >
             Management
@@ -115,7 +115,7 @@ export default function Hero() {
           </div>
           <Tag
             tone="sky"
-            rotate={4}
+            rotate={-10}
             className="absolute bottom-[28%] left-[43%] z-30"
           >
             Marketing

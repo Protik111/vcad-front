@@ -6,7 +6,7 @@ const TONES = {
   navyCyan: "bg-navy text-cyan",
   navyWhite: "bg-navy text-white",
   outline: "bg-deep/40 text-cyan",
-  sky: "bg-sky text-base",
+  sky: "bg-sky text-white",
   plum: "bg-plum text-white",
   plumWhite: "bg-[#00FFD2] text-[#061665]",
 } as const;

@@ -12,16 +12,22 @@ interface LogoMarkProps {
 export default function LogoMark({ size = 28, className }: LogoMarkProps) {
   return (
     <svg
-      width={size}
-      height={size}
+      width={42}
+      height={38}
       viewBox="0 0 50 50"
       fill="none"
       aria-hidden="true"
       className={className}
     >
       <path d="M49.3125 0H0V49.3477H49.3125V0Z" fill="#061665" />
-      <path d="M4.50696 6.23651L14.7575 22.801L25.0052 6.23651H4.50696Z" fill="#FF379E" />
-      <path d="M4.5069 42.9053H25.0051L14.7574 26.3409L4.5069 42.9053Z" fill="#8EC8EE" />
+      <path
+        d="M4.50696 6.23651L14.7575 22.801L25.0052 6.23651H4.50696Z"
+        fill="#FF379E"
+      />
+      <path
+        d="M4.5069 42.9053H25.0051L14.7574 26.3409L4.5069 42.9053Z"
+        fill="#8EC8EE"
+      />
       <path
         d="M36.1138 22.7983H44.353V6.23385H36.1138C25.2821 6.41955 25.2878 22.6126 36.1138 22.7983Z"
         fill="#00FFD2"
