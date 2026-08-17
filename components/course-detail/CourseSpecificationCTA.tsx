@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 
 /**
  * "Course Specification" download row. Links to a real (placeholder)
@@ -11,26 +12,25 @@ export default function CourseSpecificationCTA() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 rounded-card border border-border/60 bg-card px-6 py-8 sm:flex-row sm:items-center sm:px-10">
           <div className="flex items-center gap-5">
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-magenta to-pink text-white">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
+            <Image
+              src={"/images/download.png"}
+              alt={"Download"}
+              width={90}
+              height={90}
+              // sizes={imageSizes}
+              className="object-cover"
+            />
             <div>
-              <p className="text-lg font-semibold text-white">Course Specification</p>
+              <p className="text-lg font-semibold text-white">
+                Course Specification
+              </p>
               <p className="text-default text-pale-blue">
                 Download the full course specification for detailed information.
               </p>
             </div>
           </div>
 
-          <Button href="/documents/course-specification.pdf" arrow="outline">
+          <Button href="/documents/course-specification.pdf" variant="solid">
             Download PDF
           </Button>
         </div>
