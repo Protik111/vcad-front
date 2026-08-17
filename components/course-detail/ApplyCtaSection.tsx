@@ -7,8 +7,8 @@ import Button from "@/components/ui/Button";
  */
 export default function ApplyCtaSection() {
   return (
-    <section className="relative overflow-hidden bg-card py-20 sm:py-20">
-      <Container className="relative bg-[url('/images/apply-cta-left-bg.png'),url('/images/apply-cta-right-bg.png')] bg-[position:left,right] bg-no-repeat bg-auto">
+    <section className="relative overflow-hidden bg-card py-20 sm:py-20 bg-[url('/images/apply-cta-left-bg.png'),url('/images/apply-cta-right-bg.png')] bg-[position:left,right] bg-no-repeat bg-[size:auto_100%]">
+      <Container className="relative">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             Ready to Apply?
