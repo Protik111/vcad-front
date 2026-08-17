@@ -41,7 +41,7 @@ export default function CourseDetailNav() {
   }, []);
 
   return (
-    <div className="bg-navy py-6">
+    <div className="pt-20">
       <nav
         aria-label="Course sections"
         className="mx-auto w-fit max-w-full px-4"

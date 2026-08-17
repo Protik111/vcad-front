@@ -45,7 +45,7 @@ export default function CourseInfoGrid({ course }: CourseInfoGridProps) {
 
   return (
     <section id="overview" className="scroll-mt-24 py-20 sm:py-28">
-      <Container>
+      <Container className="bg-[url('/images/cta-back-right.png')] bg-top-left bg-no-repeat bg-size-[250px]">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             Course Information
