@@ -11,7 +11,11 @@ import { cn } from "@/lib/cn";
  * (real tabs) on the left, and that category's accordion content on
  * the right.
  */
-export default function AdmissionsSection({ categories }: { categories: AdmissionsCategory[] }) {
+export default function AdmissionsSection({
+  categories,
+}: {
+  categories: AdmissionsCategory[];
+}) {
   const [activeCategory, setActiveCategory] = useState(0);
   const tablistId = useId();
   const active = categories[activeCategory];
@@ -22,7 +26,9 @@ export default function AdmissionsSection({ categories }: { categories: Admissio
     <section id="admissions" className="scroll-mt-24 py-20 sm:py-28">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">Admissions &amp; Key Details</h2>
+          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+            Admissions &amp; Key Details
+          </h2>
           <p className="mt-3 text-default text-pale-blue">
             Everything you need to know about applying and studying
           </p>
@@ -46,13 +52,15 @@ export default function AdmissionsSection({ categories }: { categories: Admissio
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(index)}
                   className={cn(
-                    "whitespace-nowrap rounded-card px-5 py-3.5 text-left text-default font-medium transition-colors lg:whitespace-normal",
+                    "whitespace-nowrap px-5 py-3.5 text-left text-default font-medium transition-colors lg:whitespace-normal",
                     isActive
-                      ? "border-l-2 border-pink bg-card text-white"
+                      ? "bg-plum text-white"
                       : "border-l-2 border-transparent text-pale-blue hover:text-white",
                   )}
                 >
-                  <span aria-hidden="true" className="mr-1 text-pink">/</span>
+                  <span aria-hidden="true" className="mr-1 text-white">
+                    /
+                  </span>
                   {category.label}
                 </button>
               );
