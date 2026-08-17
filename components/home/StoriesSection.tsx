@@ -48,8 +48,8 @@ export default function StoriesSection({ stories }: { stories: Story[] }) {
           }
         />
 
-        <div className="mt-10 grid items-center gap-10 sm:mt-14 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card">
+        <div className="mt-10 grid items-center gap-10 sm:mt-14 lg:grid-cols-2 lg:gap-10">
+          <div className="relative aspect-[4/3] w-full overflow-hidden border border-white">
             <Image
               src={active.image}
               alt={active.imageAlt}
@@ -63,8 +63,14 @@ export default function StoriesSection({ stories }: { stories: Story[] }) {
             <h3 className="text-2xl font-semibold text-white sm:text-3xl">
               {active.title}
             </h3>
-            <p className="mt-5 text-default text-pale-blue">{active.excerpt}</p>
-            <Button href={`/stories/${active.slug}`} arrow="outline" className="mt-8">
+            <p className="mt-12 text-default text-pale-blue">
+              {active.excerpt}
+            </p>
+            <Button
+              href={`/stories/${active.slug}`}
+              variant="solid"
+              className="mt-24"
+            >
               Read Article
             </Button>
           </div>
