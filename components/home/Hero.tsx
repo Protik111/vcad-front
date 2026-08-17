@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="relative mx-auto aspect-[6/5] w-full max-w-lg lg:mx-0 lg:max-w-none">
           <div className="absolute left-0 top-0 h-[58%] w-[46%] -rotate-3 overflow-hidden rounded-card shadow-2xl">
             <Image
-              src="/images/hero-fashion.webp"
+              src="/images/hero-fashion.jpg"
               alt=""
               fill
               sizes="(min-width: 1024px) 25vw, 40vw"
@@ -52,7 +52,7 @@ export default function Hero() {
 
           <div className="absolute right-0 top-0 h-[50%] w-[42%] rotate-3 overflow-hidden rounded-card shadow-2xl">
             <Image
-              src="/images/hero-photography.webp"
+              src="/images/hero-photography.jpg"
               alt=""
               fill
               sizes="(min-width: 1024px) 22vw, 36vw"
@@ -69,7 +69,7 @@ export default function Hero() {
 
           <div className="absolute bottom-0 right-[4%] h-[54%] w-[32%] -rotate-2 overflow-hidden rounded-card shadow-2xl">
             <Image
-              src="/images/hero-business.webp"
+              src="/images/hero-business.png"
               alt=""
               fill
               sizes="(min-width: 1024px) 18vw, 30vw"
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <div className="absolute bottom-0 left-[4%] h-[42%] w-[48%] rotate-2 overflow-hidden rounded-card shadow-2xl">
             <Image
-              src="/images/hero-marketing.webp"
+              src="/images/hero-marketing.jpg"
               alt=""
               fill
               sizes="(min-width: 1024px) 22vw, 34vw"

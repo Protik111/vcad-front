@@ -151,16 +151,16 @@ const courses: Course[] = [
     school: "School of Fashion",
     duration: "4 Years",
     category: "Fashion",
-    image: "/images/course-fashion-design.webp",
+    image: "/images/course-fashion-design.png",
     imageAlt: "Students reviewing fabric samples in a fashion design studio",
     description:
       "This course introduces students to creative practice, focusing on theoretical, practical and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication.",
     overview:
       "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication. As they progress, they engage with methodologies, enhancing understanding of processes and fostering critical thinking, collaboration, and problem-solving.",
     gallery: [
-      "/images/course-fashion-media.webp",
-      "/images/gallery-tailoring.webp",
-      "/images/story-induction.webp",
+      "/images/course-fashion-media.jpg",
+      "/images/gallery-tailoring.png",
+      "/images/story-induction.jpg",
     ],
     keyDetails: keyDetails({ tuitionFee: "£ 9535", location: "Canary Wharf" }),
     curriculum: [
@@ -226,16 +226,16 @@ const courses: Course[] = [
     school: "School of Fashion",
     duration: "3 Years",
     category: "Media",
-    image: "/images/course-fashion-media.webp",
+    image: "/images/course-fashion-media.jpg",
     imageAlt: "Fashion media students planning a marketing campaign",
     description:
       "Students explore the media and marketing landscape of the fashion industry, building skills in brand strategy, content creation and campaign development across print and digital channels.",
     overview:
       "Students explore the media and marketing landscape of the fashion industry, building skills in brand strategy, content creation and campaign development across print and digital channels. As they progress, they apply these skills to live briefs with industry partners, building an employable, portfolio-ready practice.",
     gallery: [
-      "/images/gallery-seminar.webp",
-      "/images/gallery-studio.webp",
-      "/images/story-induction.webp",
+      "/images/gallery-seminar.jpg",
+      "/images/gallery-studio.jpg",
+      "/images/story-induction.jpg",
     ],
     keyDetails: keyDetails({ tuitionFee: "£ 9250", location: "Canary Wharf" }),
     curriculum: [
@@ -277,16 +277,16 @@ const courses: Course[] = [
     school: "School of Design",
     duration: "3 Years",
     category: "Graphic Design",
-    image: "/images/course-graphic-design.webp",
-    imageAlt: "Graphic design student working on layout compositions",
+    image: "/images/course-graphic-design.jpg",
+    imageAlt: "A student reading a visual communication reference book",
     description:
       "A studio-based course covering typography, branding and visual communication, preparing students to design across print, digital and motion contexts for real-world briefs.",
     overview:
       "A studio-based course covering typography, branding and visual communication, preparing students to design across print, digital and motion contexts for real-world briefs. Students build a professional portfolio through live projects with industry partners.",
     gallery: [
-      "/images/gallery-workshop.webp",
-      "/images/gallery-studio.webp",
-      "/images/courses-showcase.webp",
+      "/images/gallery-workshop.jpg",
+      "/images/gallery-studio.jpg",
+      "/images/courses-showcase.jpg",
     ],
     keyDetails: keyDetails({ tuitionFee: "£ 9250", location: "Borough" }),
     curriculum: [
@@ -328,16 +328,16 @@ const courses: Course[] = [
     school: "School of Business and Management",
     duration: "1 Year",
     category: "Business",
-    image: "/images/course-business-management.webp",
+    image: "/images/course-business-management.jpg",
     imageAlt: "Business and management students in a seminar discussion",
     description:
       "This course introduces students to creative practice, focusing on theoretical, practical and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication.",
     overview:
       "This course introduces students to creative practice, focusing on theoretical, practical, and technical components. In early stages, students develop essential skills for academic success and personal growth, emphasizing reflection and technical skills like visual communication. As they progress, they engage with methodologies, enhancing understanding of processes and fostering critical thinking, collaboration, and problem-solving.",
     gallery: [
-      "/images/gallery-seminar.webp",
-      "/images/courses-showcase.webp",
-      "/images/story-induction.webp",
+      "/images/gallery-seminar.jpg",
+      "/images/courses-showcase.jpg",
+      "/images/story-induction.jpg",
     ],
     keyDetails: keyDetails({ tuitionFee: "£ 9535", studyMode: "Full Time", location: "Canary Wharf" }),
     curriculum: [

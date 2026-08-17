@@ -17,7 +17,7 @@ export default function CoursesHero() {
           <div className="hidden w-full items-start justify-between md:flex">
             <div className="relative -mt-2 h-28 w-32 shrink-0 -rotate-2 overflow-hidden rounded-card shadow-2xl lg:h-32 lg:w-36">
               <Image
-                src="/images/courses-hero-left.webp"
+                src="/images/courses-hero-left.jpg"
                 alt=""
                 fill
                 sizes="150px"
@@ -26,7 +26,7 @@ export default function CoursesHero() {
             </div>
             <div className="relative mt-4 h-36 w-28 shrink-0 rotate-2 overflow-hidden rounded-card shadow-2xl lg:h-44 lg:w-32">
               <Image
-                src="/images/courses-hero-right.webp"
+                src="/images/courses-hero-right.png"
                 alt=""
                 fill
                 sizes="150px"

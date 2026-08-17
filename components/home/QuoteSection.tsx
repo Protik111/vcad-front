@@ -29,8 +29,8 @@ export default function QuoteSection() {
 
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-card lg:mx-0">
             <Image
-              src="/images/quote-portrait.webp"
-              alt="A VCAD student working in the design studio"
+              src="/images/quote-portrait.jpg"
+              alt="A VCAD student with a laptop and painting materials"
               fill
               sizes="(min-width: 1024px) 28vw, 60vw"
               className="object-cover"
@@ -51,8 +51,8 @@ export default function QuoteSection() {
           <div className="relative flex w-full max-w-2xl items-end gap-4 sm:gap-6">
             <div className="relative aspect-square w-[42%] -rotate-3 overflow-hidden rounded-card shadow-2xl">
               <Image
-                src="/images/quote-craft-1.webp"
-                alt="A VCAD student sketching a new design concept"
+                src="/images/quote-craft-1.jpg"
+                alt="A VCAD student painting with watercolours"
                 fill
                 sizes="(min-width: 1024px) 20vw, 40vw"
                 className="object-cover"
@@ -60,7 +60,7 @@ export default function QuoteSection() {
             </div>
             <div className="relative -ml-8 aspect-[4/3] w-[58%] translate-y-6 rotate-2 overflow-hidden rounded-card shadow-2xl sm:-ml-10">
               <Image
-                src="/images/quote-craft-2.webp"
+                src="/images/quote-craft-2.jpg"
                 alt="VCAD fashion students working together on a garment"
                 fill
                 sizes="(min-width: 1024px) 26vw, 50vw"

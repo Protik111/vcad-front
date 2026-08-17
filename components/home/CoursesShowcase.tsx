@@ -96,7 +96,7 @@ export default function CoursesShowcase({ courses }: { courses: Course[] }) {
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card lg:aspect-auto">
             <Image
-              src="/images/courses-showcase.webp"
+              src="/images/courses-showcase.jpg"
               alt="Students in a lecture at Victoria College of Arts and Design"
               fill
               sizes="(min-width: 1024px) 45vw, 90vw"

@@ -14,7 +14,7 @@ export const stories: Story[] = [
     title: "Induction in VCAD Canary Wharf campus",
     excerpt:
       "If you join Victoria College of Arts and Design, you can expect the highest calibre of teaching, cutting-edge facilities, and exceptional industry connections, which will help to prepare you for a rewarding career in the creative and tech industries.",
-    image: "/images/story-induction.webp",
+    image: "/images/story-induction.jpg",
     imageAlt: "Student presenting during induction at VCAD Canary Wharf campus",
   },
   {
@@ -23,7 +23,7 @@ export const stories: Story[] = [
     title: "A day in the life at VCAD Borough",
     excerpt:
       "From studio critiques to industry guest lectures, see what a typical day looks like for a VCAD Borough student and how the campus supports creative practice from first year through to graduation.",
-    image: "/images/story-life-borough.webp",
-    imageAlt: "Students working in a studio space at VCAD Borough campus",
+    image: "/images/story-life-borough.jpg",
+    imageAlt: "Students sketching artwork together at VCAD Borough campus",
   },
 ];

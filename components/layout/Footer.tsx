@@ -5,9 +5,9 @@ import SocialIcon from "@/components/ui/SocialIcon";
 import { footerLinks, footerContact, socialLinks } from "@/data/footer";
 
 const accreditationBadges = [
-  { src: "/images/badge-advance-he.svg", alt: "Advance HE accreditation" },
-  { src: "/images/badge-accreditation-1.svg", alt: "UK quality assurance badge" },
-  { src: "/images/badge-accreditation-2.svg", alt: "Industry accreditation badge" },
+  { src: "/images/badge-advance-he.png", alt: "Advance HE Affiliate Member", width: 256, height: 139 },
+  { src: "/images/badge-accreditation-1.png", alt: "QAA Member 2024-25", width: 100, height: 112 },
+  { src: "/images/badge-accreditation-2.png", alt: "Cyber Essentials Certified", width: 112, height: 112 },
 ];
 
 /**
@@ -74,8 +74,8 @@ export default function Footer() {
                   <Image
                     src={badge.src}
                     alt={badge.alt}
-                    width={40}
-                    height={40}
+                    width={badge.width}
+                    height={badge.height}
                     className="h-9 w-auto"
                   />
                 </li>

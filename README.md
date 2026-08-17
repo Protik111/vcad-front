@@ -29,14 +29,14 @@ Then open http://localhost:3000. (`npm run dev`/`build` explicitly pin webpack o
 
 Next.js 16.3.1's Turbopack build returns HTTP 200 for a page that calls `notFound()` under a `generateStaticParams` dynamic route, even though it correctly renders the not-found UI (confirmed both in `next dev` and a `next start` production server). A `next build --webpack` build returns the correct 404. `package.json`'s `dev`/`build` scripts pin `--webpack` until that's fixed upstream — a status-code bug on a 404 page is worth avoiding even though it doesn't affect the pages a reviewer will actually click through.
 
-## Placeholder imagery
+## Imagery
 
-The Figma file wasn't reachable from this session, so every photo is a generated placeholder (navy gradient + small corner caption naming the intended subject, e.g. "Fashion", "Canary Wharf") rather than blank boxes or unrelated stock art — it keeps layout, crops and aspect ratios real while making it obvious which asset each slot expects. Swapping in real exports just means replacing the file at the same path in `/public/images` (names are listed in `data/*.ts`); no component changes needed. The course specification PDF is a real, valid, generated placeholder file for the same reason (a genuine download rather than a dead link).
+All photos are the real assets supplied in `public/images/homepage` and `public/images/course-and-details`, hand-matched to each slot by content (e.g. the B&W windswept-hair shot for the "Fashion" hero tag, the tailoring-studio photo for the fashion craft images, the real VCAD induction photo for the Stories section) and copied to clean kebab-case paths at the top level of `public/images` that `data/*.ts` references. The logo is the exact supplied `logo.svg` (inlined into `LogoMark.tsx` for `currentColor`-free, request-free rendering). Partner logos (Ravensbourne, Arts University Plymouth) weren't supplied, so those remain simple generated wordmark placeholders. The course specification PDF is a real, valid, generated placeholder file (a genuine download rather than a dead link).
 
 ## What's next
 
 1. Wire up the remaining nav/footer destinations (About, Campuses, VCAD Life, Apply, Policies, FAQs, ...).
-2. Swap placeholder images/PDF for real exported assets.
+2. Swap in real partner logo files.
 3. Revisit the Turbopack build once Next.js ships a fix, to drop the `--webpack` pin.
 
 ## Deployment
