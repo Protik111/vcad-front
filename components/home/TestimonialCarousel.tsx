@@ -32,7 +32,7 @@ export default function TestimonialCarousel({
           title="Our students sharing their thoughts"
           aside={
             <div
-              className="flex items-center gap-3"
+              className="flex items-center gap-1"
               role="group"
               aria-label="Testimonial carousel controls"
             >
@@ -50,9 +50,10 @@ export default function TestimonialCarousel({
               />
             </div>
           }
+          className="min-w-5xl"
         />
 
-        <div className="mt-10 grid overflow-hidden rounded-card border border-border/60 bg-card sm:mt-14 sm:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[0.7fr_1fr]">
+        <div className="mt-10 grid gap-6 overflow-hidden   sm:mt-14 sm:grid-cols-[0.9fr_1.1fr] lg:grid-cols-[0.7fr_1fr]">
           <div className="relative aspect-[4/3] sm:aspect-auto">
             <Image
               src={active.image}
@@ -63,13 +64,21 @@ export default function TestimonialCarousel({
             />
           </div>
 
-          <div className="flex flex-col justify-center gap-6 p-8 sm:p-10 lg:p-14">
-            <svg width="40" height="30" viewBox="0 0 40 30" fill="none" aria-hidden="true" className="text-pink">
+          <div className="flex flex-col justify-center gap-6 p-8 sm:p-10 lg:p-14 border border-[#D9D9D9]">
+            <svg
+              width="67"
+              height="51"
+              viewBox="0 0 67 51"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                d="M0 30V17.6C0 7.9 6.4 1.3 16.7 0v6.3c-5.4 1.4-8.1 5-8.1 10h8.1V30H0Zm23.3 0V17.6c0-9.7 6.4-16.3 16.7-17.6v6.3c-5.4 1.4-8.1 5-8.1 10h8.1V30H23.3Z"
-                fill="currentColor"
+                d="M0 51V34.8095C0 30.4021 0.900538 25.9722 2.70161 21.5198C4.50269 17.0675 6.77655 12.9524 9.52319 9.1746C12.2698 5.39683 15.039 2.33863 17.8306 0L33.2298 7.8254C30.8884 11.7381 29.0649 15.8307 27.7591 20.1032C26.4983 24.3757 25.8905 29.2778 25.9355 34.8095V51H0ZM33.7702 51V34.8095C33.7702 30.4021 34.6707 25.9722 36.4718 21.5198C38.2729 17.0675 40.5467 12.9524 43.2933 9.1746C46.04 5.39683 48.8091 2.33863 51.6008 0L67 7.8254C64.6586 11.7381 62.835 15.8307 61.5292 20.1032C60.2685 24.3757 59.6606 29.2778 59.7056 34.8095V51H33.7702Z"
+                fill="white"
+                fill-opacity="0.2"
               />
             </svg>
+
             <p className="text-lead text-pale-blue">{active.quote}</p>
             <div>
               <p className="text-lg font-semibold text-white">{active.name}</p>

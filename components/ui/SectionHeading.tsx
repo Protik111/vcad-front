@@ -32,7 +32,7 @@ export default function SectionHeading({
         <SectionLabel>{label}</SectionLabel>
         <h2
           className={cn(
-            "mt-3 max-w-xl text-3xl font-bold text-white sm:text-4xl lg:text-section",
+            "mt-3 text-3xl font-bold text-white sm:text-4xl lg:text-section",
             titleClassName,
           )}
         >
