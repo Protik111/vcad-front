@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Container from "@/components/ui/Container";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
@@ -6,9 +9,14 @@ import MobileMenu from "./MobileMenu";
 
 /**
  * Shared site header. Rendered once in the root layout so no page
- * duplicates header markup.
+ * duplicates header markup. The homepage has no "Apply Now" CTA and
+ * always shows the menu button; other pages show it alongside the
+ * fuller nav and hide it above the `lg` breakpoint.
  */
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <header className="border-b border-border/60">
       <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
@@ -17,10 +25,12 @@ export default function Header() {
         <NavLinks />
 
         <div className="flex items-center gap-4">
-          <Button href="/apply" variant="solid" className="hidden sm:inline-flex">
-            Apply Now
-          </Button>
-          <MobileMenu />
+          {!isHome && (
+            <Button href="/apply" variant="solid" className="hidden sm:inline-flex">
+              Apply Now
+            </Button>
+          )}
+          <MobileMenu alwaysVisible={isHome} />
         </div>
       </Container>
     </header>

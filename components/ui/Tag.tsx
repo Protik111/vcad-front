@@ -1,10 +1,14 @@
 import { cn } from "@/lib/cn";
 
 const TONES = {
-  pink: "bg-pink text-white",
-  cyan: "bg-cyan text-base",
+  pink: "bg-[#FF379E] text-white",
   magenta: "bg-magenta text-white",
-  blue: "bg-blue text-white",
+  navyCyan: "bg-navy text-cyan",
+  navyWhite: "bg-navy text-white",
+  outline: "bg-deep/40 text-cyan",
+  sky: "bg-sky text-base",
+  plum: "bg-plum text-white",
+  plumWhite: "bg-[#00FFD2] text-[#061665]",
 } as const;
 
 interface TagProps {
@@ -16,13 +20,19 @@ interface TagProps {
 
 /**
  * Small rotated discipline chip layered over the hero photo collage
- * ("FASHION", "PHOTOGRAPHY", "GRAPHIC DESIGN", ...).
+ * ("FASHION", "PHOTOGRAPHY", "GRAPHIC DESIGN", ...). Every tone shares
+ * the same pink border for a consistent accent across the collage.
  */
-export default function Tag({ children, tone, rotate = 0, className }: TagProps) {
+export default function Tag({
+  children,
+  tone,
+  rotate = 0,
+  className,
+}: TagProps) {
   return (
     <span
       className={cn(
-        "inline-block whitespace-nowrap rounded-badge px-3.5 py-1.5 text-micro font-bold uppercase tracking-[0.08em] shadow-lg",
+        "inline-block whitespace-nowrap px-6 py-4.5 text-micro font-extrabold uppercase text-2xl tracking-[0.08em] shadow-lg",
         TONES[tone],
         className,
       )}

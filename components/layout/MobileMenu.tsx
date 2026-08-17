@@ -2,17 +2,27 @@
 
 import { useEffect, useId, useState } from "react";
 import Link from "next/link";
-import { primaryNav } from "@/data/navigation";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
+import { homeNav, primaryNav } from "@/data/navigation";
 import Button from "@/components/ui/Button";
+
+interface MobileMenuProps {
+  /** Homepage keeps the menu button visible at every breakpoint. */
+  alwaysVisible?: boolean;
+}
 
 /**
  * Off-canvas navigation drawer, toggled by the header's menu button.
  * Owns its own open state and closes on route change, Escape, or
  * backdrop click so it never traps keyboard focus.
  */
-export default function MobileMenu() {
+export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const links = isHome ? homeNav : primaryNav;
 
   useEffect(() => {
     if (!open) return;
@@ -38,7 +48,10 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label="Open menu"
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink lg:hidden"
+        className={cn(
+          "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink",
+          !alwaysVisible && "lg:hidden",
+        )}
       >
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
           <path
@@ -85,7 +98,7 @@ export default function MobileMenu() {
 
             <nav aria-label="Primary">
               <ul className="flex flex-col gap-6">
-                {primaryNav.map((link) => (
+                {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -99,9 +112,11 @@ export default function MobileMenu() {
               </ul>
             </nav>
 
-            <Button href="/apply" variant="solid" className="mt-auto justify-center">
-              Apply Now
-            </Button>
+            {!isHome && (
+              <Button href="/apply" variant="solid" className="mt-auto justify-center">
+                Apply Now
+              </Button>
+            )}
           </div>
         </div>
       )}

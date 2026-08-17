@@ -3,19 +3,22 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
-import { primaryNav } from "@/data/navigation";
+import { homeNav, primaryNav } from "@/data/navigation";
 
 /**
  * Desktop primary nav. A client component only so the current route
  * can be highlighted — the rest of the header stays server-rendered.
+ * The homepage uses a simpler nav set than the rest of the site.
  */
 export default function NavLinks() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const links = isHome ? homeNav : primaryNav;
 
   return (
     <nav aria-label="Primary" className="hidden lg:block">
       <ul className="flex items-center gap-9">
-        {primaryNav.map((link) => {
+        {links.map((link) => {
           const isActive =
             link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
 
@@ -29,7 +32,9 @@ export default function NavLinks() {
                   isActive ? "text-white" : "text-text",
                 )}
               >
-                <span aria-hidden="true" className="text-pink">/</span>
+                {!isHome && (
+                  <span aria-hidden="true" className="text-pink">/</span>
+                )}
                 {link.label}
                 {link.hasSubmenu && (
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
