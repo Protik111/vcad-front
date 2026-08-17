@@ -3,12 +3,34 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
     <path d="M13 9H11V8c0-.6.4-1 1-1h1V4.5h-1.7C9.6 4.5 8.5 5.6 8.5 7.3V9H7v2.5h1.5V19H11v-7.5h1.8L13 9Z" />
   ),
   "X (Twitter)": (
-    <path d="M6 6l12 12M18 6 6 18" strokeWidth="1.4" stroke="currentColor" fill="none" strokeLinecap="round" />
+    <path
+      d="M6 6l12 12M18 6 6 18"
+      strokeWidth="1.4"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+    />
   ),
   Instagram: (
     <>
-      <rect x="5" y="5" width="14" height="14" rx="4" fill="none" stroke="currentColor" strokeWidth="1.3" />
-      <circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.3" />
+      <rect
+        x="5"
+        y="5"
+        width="14"
+        height="14"
+        rx="4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="3.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
       <circle cx="16" cy="8" r="0.9" />
     </>
   ),
@@ -21,7 +43,16 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
   ),
   YouTube: (
     <>
-      <rect x="4.5" y="7" width="15" height="10" rx="3" fill="none" stroke="currentColor" strokeWidth="1.3" />
+      <rect
+        x="4.5"
+        y="7"
+        width="15"
+        height="10"
+        rx="3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.3"
+      />
       <path d="m10.5 9.5 4 2.5-4 2.5Z" />
     </>
   ),
@@ -33,8 +64,8 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
 export default function SocialIcon({ label }: { label: string }) {
   return (
     <svg
-      width="15"
-      height="15"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"

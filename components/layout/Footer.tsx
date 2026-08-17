@@ -5,9 +5,24 @@ import SocialIcon from "@/components/ui/SocialIcon";
 import { footerLinks, footerContact, socialLinks } from "@/data/footer";
 
 const accreditationBadges = [
-  { src: "/images/badge-advance-he.png", alt: "Advance HE Affiliate Member", width: 256, height: 139 },
-  { src: "/images/badge-accreditation-1.png", alt: "QAA Member 2024-25", width: 100, height: 112 },
-  { src: "/images/badge-accreditation-2.png", alt: "Cyber Essentials Certified", width: 112, height: 112 },
+  {
+    src: "/images/badge-advance-he.png",
+    alt: "Advance HE Affiliate Member",
+    width: 116,
+    height: 56,
+  },
+  {
+    src: "/images/badge-accreditation-1.png",
+    alt: "QAA Member 2024-25",
+    width: 50,
+    height: 56,
+  },
+  {
+    src: "/images/badge-accreditation-2.png",
+    alt: "Cyber Essentials Certified",
+    width: 50,
+    height: 56,
+  },
 ];
 
 /**
@@ -28,7 +43,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-text transition-colors hover:border-pink hover:text-pink"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text transition-colors hover:border-pink hover:text-pink"
                   >
                     <SocialIcon label={social.label} />
                   </a>
@@ -52,17 +67,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-col gap-6 lg:items-end">
-            <div className="lg:text-right">
+          <div className="flex flex-col gap-6 lg:items-start">
+            <div className="lg:text-left">
               <a
                 href={`mailto:${footerContact.email}`}
-                className="text-lg font-semibold text-white transition-colors hover:text-pink sm:text-xl"
+                className="text-lg font-semibold text-text transition-colors hover:text-pink sm:text-xl"
               >
                 {footerContact.email}
               </a>
               <a
                 href={`tel:${footerContact.phone.replace(/\s/g, "")}`}
-                className="mt-1 block text-default text-sky transition-colors hover:text-pink"
+                className="mt-1 block text-default text-text transition-colors hover:text-pink"
               >
                 {footerContact.phone}
               </a>
@@ -76,7 +91,7 @@ export default function Footer() {
                     alt={badge.alt}
                     width={badge.width}
                     height={badge.height}
-                    className="h-9 w-auto"
+                    // className="h-9 w-auto"
                   />
                 </li>
               ))}
@@ -84,8 +99,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border/60 pt-6 text-meta text-sky sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Victoria College of Arts and Design.</p>
+        <div className="mt-12 flex flex-col gap-2 border-t border-border/60 pt-6 text-meta text-text sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} Victoria College of Arts and Design.
+          </p>
           <p>All rights reserved.</p>
         </div>
       </Container>
