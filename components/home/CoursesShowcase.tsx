@@ -25,23 +25,8 @@ function CourseRow({ course, isOpen, onToggle }: CourseRowProps) {
         aria-controls={panelId}
         className="flex w-full items-center justify-between gap-4 text-left"
       >
-        <span className="text-xl font-semibold text-white sm:text-2xl">
+        <span className="text-xl font-semibold text-white sm:text-2xl cursor-pointer">
           {course.title}
-        </span>
-        <span
-          aria-hidden="true"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-white transition-transform duration-200"
-          style={{ transform: isOpen ? "rotate(90deg)" : undefined }}
-        >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M3.5 8h9M8 3.5 12.5 8 8 12.5"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
         </span>
       </button>
       <div
@@ -52,9 +37,25 @@ function CourseRow({ course, isOpen, onToggle }: CourseRowProps) {
             : "grid-rows-[0fr] opacity-0"
         }`}
       >
-        <p className="overflow-hidden text-default text-pale-blue">
-          {course.description}
-        </p>
+        <div className="flex items-start gap-3 overflow-hidden">
+          <svg
+            width="26"
+            height="20"
+            viewBox="0 0 26 20"
+            fill="none"
+            aria-hidden="true"
+            className="mt-1 shrink-0"
+          >
+            <path
+              d="M1 10H25M16 19L25 10L16 1"
+              stroke="#E018E0"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <p className="text-default text-pale-blue">{course.description}</p>
+        </div>
       </div>
     </div>
   );
