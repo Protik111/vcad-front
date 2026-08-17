@@ -9,7 +9,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
  */
 export default function CourseDetailHero({ course }: { course: Course }) {
   return (
-    <section className="pt-8 sm:pt-12">
+    <section className="pt-8 sm:pt-12 bg-[url('/images/cta-background.png')] bg-top-right bg-no-repeat bg-size-[505px]">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
           <Breadcrumb
@@ -34,13 +34,13 @@ export default function CourseDetailHero({ course }: { course: Course }) {
             {course.gallery.map((src, index) => (
               <div
                 key={src + index}
-                className="relative aspect-[4/3] overflow-hidden rounded-card"
+                className={`relative overflow-hidden ${index === 1 ? "aspect-[4/3]" : "aspect-[4/3]"}`}
               >
                 <Image
                   src={src}
                   alt=""
                   fill
-                  sizes="(min-width: 640px) 33vw, 100vw"
+                  // sizes="(min-width: 640px) 33vw, 100vw"
                   className="object-cover"
                   priority={index === 0}
                 />

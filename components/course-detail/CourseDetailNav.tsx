@@ -42,7 +42,10 @@ export default function CourseDetailNav() {
 
   return (
     <div className="bg-navy py-6">
-      <nav aria-label="Course sections" className="mx-auto w-fit max-w-full px-4">
+      <nav
+        aria-label="Course sections"
+        className="mx-auto w-fit max-w-full px-4"
+      >
         <ul className="flex flex-wrap items-center justify-center gap-2 rounded-pill border border-border/60 bg-card-alt/60 p-2">
           {SECTIONS.map((section) => (
             <li key={section.id}>
@@ -52,11 +55,13 @@ export default function CourseDetailNav() {
                 className={cn(
                   "block whitespace-nowrap rounded-pill px-5 py-2.5 text-default font-medium transition-colors",
                   activeId === section.id
-                    ? "bg-gradient-to-r from-magenta to-pink text-white"
+                    ? "text-magenta-light"
                     : "text-pale-blue hover:text-white",
                 )}
               >
-                <span aria-hidden="true" className="mr-1">/</span>
+                <span aria-hidden="true" className="mr-1">
+                  /
+                </span>
                 {section.label}
               </a>
             </li>
