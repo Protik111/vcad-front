@@ -5,13 +5,30 @@ import Badge from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
 
 function ArrowGlyph({ tone }: { tone: "navy" | "magenta" }) {
+  if (tone === "magenta") {
+    return (
+      <span
+        aria-hidden="true"
+        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-plum text-white shadow-lg transition-transform group-hover:translate-x-0.5"
+      >
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+          <path
+            d="M3.5 8h9M8 3.5 12.5 8 8 12.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+    );
+  }
+
+  // Navy tone — solid filled dark-navy circle for overlay cards
   return (
     <span
       aria-hidden="true"
-      className={cn(
-        "flex shrink-0 items-center justify-center rounded-full text-white shadow-lg transition-transform group-hover:translate-x-0.5",
-        tone === "magenta" ? "h-14 w-14 bg-plum" : "h-11 w-11 bg-navy",
-      )}
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#1a2160] text-white shadow-lg transition-transform group-hover:translate-x-0.5"
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path
@@ -53,7 +70,7 @@ export default function CourseCard({
       <Link
         href={`/courses/${course.slug}`}
         className={cn(
-          "group flex flex-col overflow-hidden rounded-card border border-border/60 bg-card transition-colors hover:border-pink/60",
+          "group flex flex-col overflow-hidden rounded-card border border-border/60 hover:border-pink/60 bg-gradient-to-t from-[#020928] from-5% via-[#020928]/20 via-85% to-transparent",
           className,
         )}
       >
@@ -102,7 +119,8 @@ export default function CourseCard({
         sizes={imageSizes}
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/20 to-transparent" />
+      {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#020928] from-5% via-[#020928]/20 via-85% to-transparent" />
       <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-6">
         <div>
           <h3 className="text-lg font-semibold text-white sm:text-card-title">
