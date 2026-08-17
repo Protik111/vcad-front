@@ -18,4 +18,10 @@ export const campuses: Campus[] = [
     image: "/images/campus-borough.png",
     imageAlt: "VCAD Borough campus building exterior",
   },
+  {
+    id: "soho",
+    name: "Soho Campus",
+    image: "/images/campus-3.png",
+    imageAlt: "Students walking outside VCAD Soho campus",
+  },
 ];

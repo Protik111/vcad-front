@@ -9,7 +9,7 @@ import Container from "@/components/ui/Container";
  */
 export default function QuoteSection() {
   return (
-    <section className="bg-[url('/images/homepage/quote-section/quote-section-background.png')] bg-bottom-right bg-size-[65%] bg-no-repeat py-20 sm:py-28">
+    <section className="overflow-x-clip bg-[url('/images/homepage/quote-section/quote-section-background.png')] bg-bottom-right bg-size-[65%] bg-no-repeat py-20 sm:py-28">
       <Container>
         <div className="flex pt-10">
           <div className="relative z-10 max-w-208">
