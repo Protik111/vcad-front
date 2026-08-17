@@ -38,7 +38,7 @@ export default function MobileMenu() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label="Open menu"
-        className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink lg:hidden"
       >
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
           <path
@@ -99,8 +99,8 @@ export default function MobileMenu() {
               </ul>
             </nav>
 
-            <Button href="/courses" arrow="filled" className="mt-auto">
-              Explore Courses
+            <Button href="/apply" variant="solid" className="mt-auto justify-center">
+              Apply Now
             </Button>
           </div>
         </div>

@@ -13,11 +13,11 @@ Then open http://localhost:3000.
 
 ## How far this got
 
-**Completed:** shared `Header` / `Footer` (with a functional off-canvas mobile menu), the full homepage in the design's section order — hero with photo collage, "Explore our creative courses" accordion, pull-quote, campuses carousel, students testimonial carousel, partner institutions, stories, and the closing CTA banner. All carousels/accordions are keyboard-accessible, touch-swipeable where relevant, and data-driven from `data/*.ts`. Design tokens (colour, type scale, radii) are centralized in `app/globals.css` via Tailwind's `@theme`.
+**Completed:** shared `Header` / `Footer` (functional off-canvas mobile menu, active-route highlighting, "Apply Now" CTA), the homepage in the design's section order (hero collage, courses accordion, pull-quote, campuses carousel, testimonial carousel, partners, stories, CTA banner), and `/courses` — hero, the asymmetric feature/stacked/expanded course grid with school & duration badges, an interactive scroll-snap gallery strip, loading skeleton (`app/courses/loading.tsx`), and an empty state. Everything is data-driven from `data/*.ts`; design tokens live in `app/globals.css` via Tailwind's `@theme`.
 
-**Not built this session:** `/courses` and `/courses/[slug]`. The data layer (`types/course.ts`, `data/courses.ts` with `getCourses()` / `getCourseBySlug()`) is already shaped to feed those pages without duplicating course content, so they're the natural next step.
+**Not built this session:** `/courses/[slug]`. Course cards already link to `/courses/<slug>` and `getCourseBySlug()` exists in the data layer, so the detail page is the direct next step — those links currently 404 until it's built.
 
-**Priority reasoning:** the spec's own ordering (header → footer → homepage → courses → details) was followed, and since only the homepage was requested this session, effort went into getting it production-quality rather than stubbing all three pages thinly.
+**Priority reasoning:** followed the spec's own ordering (header → footer → homepage → courses → details); the two pages requested this session got full production-quality treatment rather than spreading effort across a thin third page.
 
 ## One undirected decision: placeholder imagery
 
@@ -25,9 +25,9 @@ The Figma file wasn't reachable from this session, so every photo is a generated
 
 ## What's next
 
-1. Build `/courses` (asymmetric grid + loading/empty states) and `/courses/[slug]` (tabs, accordion, gallery) off the existing data layer.
+1. Build `/courses/[slug]` (tabs, accordion, gallery, related courses) off the existing data layer.
 2. Swap placeholder images for real exported assets.
-3. Wire up `/about`, `/contact`, `/campuses`, `/policies`, etc. — currently valid links with no destination page yet.
+3. Wire up `/about`, `/campuses`, `/vcad-life`, `/apply`, `/policies`, etc. — currently valid links with no destination page yet.
 
 ## Deployment
 

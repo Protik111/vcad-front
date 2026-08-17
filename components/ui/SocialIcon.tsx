@@ -25,6 +25,9 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
       <path d="m10.5 9.5 4 2.5-4 2.5Z" />
     </>
   ),
+  TikTok: (
+    <path d="M15.5 4c.3 1.8 1.4 3 3.2 3.2v2.4c-1.2 0-2.3-.4-3.2-1.1v5.6a4.9 4.9 0 1 1-4.9-4.9c.2 0 .4 0 .6.03v2.5a2.4 2.4 0 1 0 1.7 2.3V4Z" />
+  ),
 };
 
 export default function SocialIcon({ label }: { label: string }) {

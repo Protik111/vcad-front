@@ -27,7 +27,8 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   { label: "Facebook", href: "https://facebook.com" },
   { label: "X (Twitter)", href: "https://x.com" },
-  { label: "Instagram", href: "https://instagram.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "Instagram", href: "https://instagram.com" },
   { label: "YouTube", href: "https://youtube.com" },
+  { label: "TikTok", href: "https://tiktok.com" },
 ];

@@ -6,7 +6,7 @@ import CampusesCarousel from "@/components/home/CampusesCarousel";
 import TestimonialCarousel from "@/components/home/TestimonialCarousel";
 import PartnersSection from "@/components/home/PartnersSection";
 import StoriesSection from "@/components/home/StoriesSection";
-import CtaBanner from "@/components/home/CtaBanner";
+import CtaBanner from "@/components/shared/CtaBanner";
 import { getCourses } from "@/data/courses";
 import { campuses } from "@/data/campuses";
 import { testimonials } from "@/data/testimonials";
