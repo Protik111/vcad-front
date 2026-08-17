@@ -8,10 +8,17 @@ import Tag from "@/components/ui/Tag";
  * collage of the college's disciplines on the right. The collage is
  * purely decorative, so its images carry empty alt text while the
  * discipline tags convey the same information as text.
+ *
+ * The two bottom photos sit behind the two top photos (explicit
+ * z-index, since the bottom photos come later in the DOM but must
+ * render underneath), and `overflow-y-visible` pairs with
+ * `overflow-x-hidden` so the browser doesn't fall back to an implicit
+ * `overflow-y: auto` (a CSS quirk that otherwise gives the section its
+ * own unwanted scrollbar).
  */
 export default function Hero() {
   return (
-    <section className="overflow-x-hidden pt-8 sm:pt-12 lg:pt-25">
+    <section className="overflow-x-clip py-8 sm:py-12 lg:py-25">
       <Container className="grid items-center gap-16 lg:grid-cols-2 lg:gap-6">
         <div className="max-w-xl">
           <h1 className="text-[110px] font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-[110px]">
@@ -32,7 +39,28 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto aspect-19/20 w-full max-w-lg lg:mx-0 lg:max-w-none">
-          <div className="absolute left-0 top-[5%] h-[58%] w-[43%] overflow-hidden rounded-card border border-pink/60 shadow-2xl">
+          {/* Bottom layer: sunglasses-pair (left) and book (right) photos, sit behind the top two. */}
+          <div className="absolute top-[42%] bottom-0 left-[22%] z-0 h-[60%] w-[38%] overflow-hidden border border-pink/60 shadow-2xl">
+            <Image
+              src="/images/hero-marketing.jpg"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 20vw, 32vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute bottom-[-10] right-[-10%] z-0 h-[65%] w-[44%] overflow-hidden border border-pink/60 shadow-2xl">
+            <Image
+              src="/images/hero-media.jpg"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 24vw, 36vw"
+              className="object-cover"
+            />
+          </div>
+
+          {/* Top layer: fashion (left) and photography (right) photos, overlap on top of the bottom two. */}
+          <div className="absolute left-0 top-[2%] z-10 h-[62%] w-[43%] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-fashion.jpg"
               alt=""
@@ -41,22 +69,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <Tag
-            tone="pink"
-            rotate={-6}
-            className="absolute left-[-6%] top-[8%] z-20"
-          >
-            Fashion
-          </Tag>
-          <Tag
-            tone="plumWhite"
-            rotate={8}
-            className="absolute left-[-4%] top-[55%] z-20"
-          >
-            Media
-          </Tag>
-
-          <div className="absolute right-0 top-0 h-[53%] w-[42%] overflow-hidden rounded-card border border-pink/60 shadow-2xl">
+          <div className="absolute right-12 top-[2%] z-10 h-[54%] w-[43%] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-photography.jpg"
               alt=""
@@ -65,58 +78,49 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
+
+          <Tag
+            tone="pink"
+            rotate={-10}
+            className="absolute left-[-7%] top-[5%] z-20"
+          >
+            Fashion
+          </Tag>
+          <Tag
+            tone="plumWhite"
+            rotate={10}
+            className="absolute left-[-6%] top-[51%] z-20"
+          >
+            Media
+          </Tag>
           <Tag
             tone="magenta"
-            rotate={5}
-            className="absolute right-[2%] top-[7%] z-20"
+            rotate={15}
+            className="absolute right-[-5%] top-[2%] z-20"
           >
             Photography
           </Tag>
           <Tag
             tone="navyWhite"
-            rotate={6}
-            className="absolute right-[-8%] top-[40%] z-20"
+            rotate={15}
+            className="absolute right-[-8%] top-[35%] z-20"
           >
             Business
           </Tag>
-
-          <div className="absolute bottom-0 left-[20%] h-[42%] w-[34%] overflow-hidden rounded-card border border-pink/60 shadow-2xl">
-            <Image
-              src="/images/hero-marketing.jpg"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 18vw, 30vw"
-              className="object-cover"
-            />
-          </div>
           <Tag
             tone="navyCyan"
-            rotate={-8}
-            className="absolute bottom-[46%] left-[19%] z-30"
+            rotate={-12}
+            className="absolute bottom-[53%] left-[12%] z-30"
           >
             Graphic Design
           </Tag>
-          <Tag
-            tone="plum"
-            // rotate={-4}
-            className="absolute bottom-[-3%] left-[2%] z-20"
-          >
+          <Tag tone="plum" className="absolute bottom-[10%] left-[2%] z-20">
             Management
           </Tag>
-
-          <div className="absolute bottom-0 right-[3%] h-[46%] w-[41%] overflow-hidden rounded-card border border-pink/60 shadow-2xl">
-            <Image
-              src="/images/hero-media.jpg"
-              alt=""
-              fill
-              sizes="(min-width: 1024px) 22vw, 34vw"
-              className="object-cover"
-            />
-          </div>
           <Tag
             tone="sky"
-            rotate={-10}
-            className="absolute bottom-[28%] left-[43%] z-30"
+            rotate={-12}
+            className="absolute bottom-[15%] left-[48%] z-30"
           >
             Marketing
           </Tag>

@@ -9,11 +9,11 @@ interface LogoMarkProps {
  * from the supplied `logo.svg` so it always matches the real brand
  * mark instead of an approximation.
  */
-export default function LogoMark({ size = 28, className }: LogoMarkProps) {
+export default function LogoMark({ size, className }: LogoMarkProps) {
   return (
     <svg
-      width={42}
-      height={38}
+      width={size ?? 42}
+      height={size ?? 38}
       viewBox="0 0 50 50"
       fill="none"
       aria-hidden="true"

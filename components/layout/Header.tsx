@@ -18,7 +18,7 @@ export default function Header() {
   const isHome = pathname === "/";
 
   return (
-    <header className="border-b border-border/60">
+    <header className="bg-[#040D3D]">
       <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
         <Logo />
 
@@ -26,7 +26,11 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           {!isHome && (
-            <Button href="/apply" variant="solid" className="hidden sm:inline-flex">
+            <Button
+              href="/apply"
+              variant="solid"
+              className="hidden sm:inline-flex"
+            >
               Apply Now
             </Button>
           )}
