@@ -76,6 +76,20 @@
   --breakpoint-3xl: 1440px;
 }
 
+/* Global safety net: 3D-transformed content (e.g. the campus
+   carousel's coverflow effect) can extend past an ordinary ancestor's
+   `overflow: clip`/`hidden` for scrollWidth purposes even while
+   rendering correctly clipped on screen — a known cross-browser quirk
+   with perspective/3D compositing layers. This has to be `hidden`,
+   not `clip`, and it has to live on `html`, not `body`: `clip` on the
+   root element did not actually stop real scrolling in testing
+   (confirmed via a live scroll attempt, not just measuring
+   `scrollWidth`), where `hidden` — the long-established, reliably
+   supported way to disable root scrolling — does. */
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--color-base);
   color: var(--color-text);

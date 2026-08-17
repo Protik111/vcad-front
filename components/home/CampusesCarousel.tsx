@@ -61,7 +61,7 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
   };
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="overflow-x-clip py-20 sm:py-28">
       <Container>
         <SectionHeading
           label="Our Campuses"
