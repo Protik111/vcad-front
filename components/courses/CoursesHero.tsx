@@ -9,10 +9,10 @@ import DecorativeRings from "@/components/ui/DecorativeRings";
  */
 export default function CoursesHero() {
   return (
-    <section className="relative overflow-hidden pt-8 sm:pt-12">
-      <DecorativeRings className="right-[-80px] top-10 h-72 w-72 sm:h-96 sm:w-96" />
+    <section className="relative overflow-hidden pt-8 sm:pt-12 ">
+      {/* <DecorativeRings className="right-[-80px] top-10 h-72 w-72 sm:h-96 sm:w-96" /> */}
 
-      <Container className="relative">
+      <Container className="relative bg-[url('/images/cta-background.png')] bg-right bg-no-repeat bg-size-[405px]">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <div className="hidden w-full items-start justify-between md:flex">
             <div className="relative -mt-2 h-28 w-32 shrink-0 overflow-hidden shadow-2xl lg:h-32 lg:w-36">
@@ -24,7 +24,7 @@ export default function CoursesHero() {
                 className="object-cover"
               />
             </div>
-            <div className="relative mt-4 shrink-0 overflow-hidden shadow-2xl lg:h-44 lg:w-32">
+            <div className="relative mt-4 left-35 top-20 shrink-0 overflow-hidden shadow-2xl lg:h-40 lg:w-32">
               <Image
                 src="/images/story-life-borough.jpg"
                 alt=""

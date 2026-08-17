@@ -10,9 +10,7 @@ function ArrowGlyph({ tone }: { tone: "navy" | "magenta" }) {
       aria-hidden="true"
       className={cn(
         "flex shrink-0 items-center justify-center rounded-full text-white shadow-lg transition-transform group-hover:translate-x-0.5",
-        tone === "magenta"
-          ? "h-14 w-14 bg-gradient-to-br from-magenta to-pink"
-          : "h-11 w-11 bg-navy",
+        tone === "magenta" ? "h-14 w-14 bg-plum" : "h-11 w-11 bg-navy",
       )}
     >
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

@@ -10,7 +10,11 @@ import CircleArrowButton from "@/components/ui/CircleArrowButton";
  * gives free touch/swipe/trackpad support; the arrow buttons scroll
  * by one card for mouse/keyboard users.
  */
-export default function CoursesGalleryStrip({ images }: { images: GalleryImage[] }) {
+export default function CoursesGalleryStrip({
+  images,
+}: {
+  images: GalleryImage[];
+}) {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const scrollByCard = (direction: 1 | -1) => {
@@ -33,13 +37,13 @@ export default function CoursesGalleryStrip({ images }: { images: GalleryImage[]
           <div
             key={image.id}
             data-gallery-item
-            className="relative aspect-square w-[45vw] shrink-0 snap-start overflow-hidden rounded-card sm:w-[28vw] lg:w-[220px]"
+            className="relative aspect-square w-[45vw] shrink-0 snap-start overflow-hidden rounded-card sm:w-[28vw] lg:w-77.5 lg:h-80"
           >
             <Image
               src={image.src}
               alt={image.alt}
               fill
-              sizes="(min-width: 1024px) 220px, 40vw"
+              // sizes="(min-width: 1024px) 220px, 40vw"
               className="object-cover"
             />
           </div>
