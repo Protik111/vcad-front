@@ -47,7 +47,9 @@ function CourseRow({ course, isOpen, onToggle }: CourseRowProps) {
       <div
         id={panelId}
         className={`grid transition-all duration-300 ease-out ${
-          isOpen ? "mt-4 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          isOpen
+            ? "mt-4 grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <p className="overflow-hidden text-default text-pale-blue">
@@ -72,7 +74,7 @@ export default function CoursesShowcase({ courses }: { courses: Course[] }) {
           label="Our Courses"
           title="Explore our creative courses"
           aside={
-            <Button href="/courses" arrow="filled">
+            <Button href="/courses" variant="solid">
               View Courses
             </Button>
           }
