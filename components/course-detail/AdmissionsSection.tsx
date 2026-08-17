@@ -40,7 +40,7 @@ export default function AdmissionsSection({
             aria-orientation="vertical"
             aria-label="Admissions category"
             id={tablistId}
-            className="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible"
+            className="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible lg:border lg:border-[#2262ee] lg:gap-0 lg:self-start"
           >
             {categories.map((category, index) => {
               const isActive = activeCategory === index;
@@ -52,16 +52,19 @@ export default function AdmissionsSection({
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(index)}
                   className={cn(
-                    "whitespace-nowrap px-5 py-3.5 text-left text-default font-medium transition-colors lg:whitespace-normal",
+                    "relative whitespace-nowrap px-5 py-4.5 text-left text-default font-medium transition-colors lg:whitespace-normal lg:border-b lg:border-dotted lg:border-[#2262ee] lg:last:border-b-0",
                     isActive
                       ? "bg-plum text-white"
-                      : "border-l-2 border-transparent text-pale-blue hover:text-white",
+                      : "text-pale-blue hover:text-white",
                   )}
                 >
                   <span aria-hidden="true" className="mr-1 text-white">
                     /
                   </span>
                   {category.label}
+                  {isActive && (
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[10px] border-y-transparent border-r-[10px] border-r-[#030a2e] hidden lg:block" />
+                  )}
                 </button>
               );
             })}
