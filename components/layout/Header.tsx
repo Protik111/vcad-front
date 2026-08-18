@@ -21,24 +21,26 @@ export default function Header() {
   return (
     <header className="bg-[#040D3D]">
       <VerticalLines>
-      <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
-        <Logo />
+        <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
+          <Logo />
 
-        <NavLinks />
+          <div className="flex items-center gap-22">
+            <NavLinks />
 
-        <div className="flex items-center gap-4">
-          {!isHome && (
-            <Button
-              href="/apply"
-              variant="solid"
-              className="hidden sm:inline-flex"
-            >
-              Apply Now
-            </Button>
-          )}
-          <MobileMenu alwaysVisible={isHome} />
-        </div>
-      </Container>
+            <div className="flex items-center gap-4">
+              {!isHome && (
+                <Button
+                  href="/apply"
+                  variant="solid"
+                  className="hidden sm:inline-flex"
+                >
+                  Apply Now
+                </Button>
+              )}
+              <MobileMenu alwaysVisible={isHome} />
+            </div>
+          </div>
+        </Container>
       </VerticalLines>
     </header>
   );
