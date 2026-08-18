@@ -40,7 +40,7 @@ export default function Hero() {
 
         <div className="relative mx-auto aspect-19/20 w-full max-w-lg lg:mx-0 lg:max-w-none">
           {/* Bottom layer: sunglasses-pair (left) and book (right) photos, sit behind the top two. */}
-          <div className="absolute top-[42%] bottom-0 left-[22%] z-0 h-[60%] w-[38%] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute top-[52%] bottom-0 left-[22%] z-0 h-[336px] w-[229px] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-marketing.jpg"
               alt=""
@@ -49,7 +49,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute bottom-[-10] right-[-10%] z-0 h-[65%] w-[44%] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute bottom-[-5%] right-[-11%] z-0 h-[411px] w-[280px] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-media.jpg"
               alt=""
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
 
           {/* Top layer: fashion (left) and photography (right) photos, overlap on top of the bottom two. */}
-          <div className="absolute left-0 top-[2%] z-10 h-[62%] w-[43%] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute left-0 top-[2%] z-10 h-[416px] w-[283px] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-fashion.jpg"
               alt=""
@@ -69,7 +69,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute right-12 top-[2%] z-10 h-[54%] w-[43%] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute right-[36px] top-[2%] z-10 h-[376px] w-[257px] overflow-hidden border border-pink/60 shadow-2xl">
             <Image
               src="/images/hero-photography.jpg"
               alt=""
@@ -88,39 +88,39 @@ export default function Hero() {
           </Tag>
           <Tag
             tone="plumWhite"
-            rotate={10}
-            className="absolute left-[-6%] top-[51%] z-20"
+            rotate={11}
+            className="absolute left-[-6%] top-[54%] z-20"
           >
             Media
           </Tag>
           <Tag
             tone="magenta"
             rotate={15}
-            className="absolute right-[-5%] top-[2%] z-20"
+            className="absolute right-[-5%] top-[3%] z-20"
           >
             Photography
           </Tag>
           <Tag
             tone="navyWhite"
             rotate={15}
-            className="absolute right-[-8%] top-[35%] z-20"
+            className="absolute right-[-9%] top-[38%] z-20"
           >
             Business
           </Tag>
           <Tag
             tone="navyCyan"
             rotate={-12}
-            className="absolute bottom-[53%] left-[12%] z-30"
+            className="absolute bottom-[47%] left-[18%] z-30"
           >
             Graphic Design
           </Tag>
-          <Tag tone="plum" className="absolute bottom-[10%] left-[2%] z-20">
+          <Tag tone="plum" className="absolute bottom-[10%] left-[1%] z-20">
             Management
           </Tag>
           <Tag
             tone="sky"
-            rotate={-12}
-            className="absolute bottom-[15%] left-[48%] z-30"
+            rotate={-14}
+            className="absolute bottom-[14%] left-[48%] z-30"
           >
             Marketing
           </Tag>
