@@ -31,7 +31,7 @@ export default function PartnersSection() {
           <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl lg:text-section">
             Partner Institutions
           </h2>
-          <p className="mt-5 text-default text-pale-blue">
+          <p className="mt-19 text-default text-pale-blue">
             Our team at Victoria College of Arts and Design is passionate about
             creating innovative projects and generating new ideas. We work with
             a variety of experts and esteemed companies using a collaborative
@@ -40,7 +40,7 @@ export default function PartnersSection() {
           </p>
         </div>
 
-        <div className="flex flex-wrap flex-col items-start gap-x-12 gap-y-8 lg:justify-end col-span-3">
+        <div className="flex flex-wrap flex-col items-start gap-x-12 gap-y-16 lg:justify-end col-span-3">
           {partners.map((partner) => (
             <Image
               key={partner.name}
