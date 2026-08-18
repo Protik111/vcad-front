@@ -493,7 +493,7 @@ const courses: Course[] = [
   {
     id: "business-management",
     slug: "business-and-management",
-    title: "THE Business & Management",
+    title: "BSc (Hons) Business Management",
     school: "School of Business",
     duration: "1 Year",
     category: "Business",

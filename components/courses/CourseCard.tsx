@@ -70,23 +70,23 @@ export default function CourseCard({
       <Link
         href={`/courses/${course.slug}`}
         className={cn(
-          "group flex flex-col overflow-hidden rounded-card border border-border/60 hover:border-pink/60 bg-gradient-to-t from-[#020928] from-5% via-[#020928]/20 via-85% to-transparent",
+          "group relative flex overflow-hidden rounded-card border border-border/60 hover:border-magenta",
           className,
         )}
       >
-        <div className="relative h-[45%] min-h-[220px] w-full shrink-0">
-          <Image
-            src={course.image}
-            alt={course.imageAlt}
-            fill
-            sizes={imageSizes}
-            className="object-cover"
-          />
-        </div>
-        <div className="flex flex-1 flex-col gap-4 p-6 sm:p-6">
+        <Image
+          src={course.image}
+          alt={course.imageAlt}
+          fill
+          sizes={imageSizes}
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top, so the photo stays visible behind the badges. */}
+        <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/98 via-25% to-transparent" />
+        <div className="relative mt-auto flex w-full flex-col gap-4 p-6 sm:p-6">
           <div className="flex flex-wrap items-center gap-2 text-[10px]">
             <Badge tone="school">{course.school}</Badge>
-            <Badge tone="duration">{course.duration}</Badge>
+            <Badge tone="school">{course.duration}</Badge>
           </div>
           <h3 className="text-card-title font-semibold text-white">
             {course.title}
@@ -96,7 +96,7 @@ export default function CourseCard({
             <p className="text-default font-semibold text-white">School:</p>
             <p className="text-default text-pale-blue">{course.school}</p>
           </div>
-          <div className="mt-auto flex justify-end pt-2">
+          <div className="mt-2 flex justify-end">
             <ArrowGlyph tone={arrowTone} />
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function CourseCard({
         className="object-cover transition-transform duration-300 group-hover:scale-105"
       />
       {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#020928] from-5% via-[#020928]/20 via-85% to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/20 via-85% to-transparent" />
       <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-6">
         <div>
           <h3 className="text-lg font-semibold text-white sm:text-card-title">

@@ -4,13 +4,6 @@ import EmptyCoursesState from "./EmptyCoursesState";
 
 const CARD_IMAGE_SIZES = "(min-width: 1024px) 32vw, 100vw";
 
-/**
- * The asymmetric course grid: a tall feature card, two stacked
- * secondary cards, and a tall expanded card with school/duration
- * badges — all rendered from shared course data. Any courses beyond
- * the first four render in a simple supporting grid so the page
- * degrades gracefully instead of hardcoding exactly four slots.
- */
 export default function CourseGrid({ courses }: { courses: Course[] }) {
   if (courses.length === 0) {
     return <EmptyCoursesState />;
