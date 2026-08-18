@@ -89,16 +89,16 @@ export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-plum"
+                className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-border text-white transition-colors hover:border-plum"
               >
-                {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path
                     d="m2 2 12 12M14 2 2 14"
                     stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                   />
-                </svg> */}
+                </svg>
               </button>
             </div>
 
