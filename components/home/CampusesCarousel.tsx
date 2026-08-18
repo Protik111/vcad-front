@@ -124,7 +124,7 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
                   }
                 >
                   {isActive ? (
-                    <div className="relative flex flex-col overflow-hidden rounded-card">
+                    <div className="relative flex flex-col overflow-hidden">
                       <div className={`relative ${IMAGE_HEIGHT}`}>
                         {imageEl}
 
@@ -138,7 +138,7 @@ export default function CampusesCarousel({ campuses }: { campuses: Campus[] }) {
                         </Link>
                       </div>
 
-                      <div className="flex h-14 shrink-0 items-center justify-center bg-navy/85 sm:h-16">
+                      <div className="flex h-14 shrink-0 items-center justify-center bg-border sm:h-16">
                         <span className="text-default font-semibold uppercase tracking-[0.06em] text-white">
                           {campus.name}
                         </span>
