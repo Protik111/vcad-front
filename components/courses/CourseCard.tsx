@@ -57,114 +57,99 @@ export default function CourseCard({
   imageSizes,
 }: CourseCardProps) {
   const arrowTone = variant === "expanded" ? "magenta" : "navy";
-
-  if (variant === "expanded") {
-    return (
-      <Link
-        href={`/courses/${course.slug}`}
-        className={cn("group relative block", className)}
-      >
-        {/* Everything that should respect the card's rounded corners
-            lives in this clipped wrapper — the arrow deliberately sits
-            outside it so it can overlap the corner. A circular mask
-            punches a real hole through the corner (rather than a
-            solid patch guessing at the page background colour) so the
-            arrow looks set into a cutout instead of just stacked on
-            top, centered on the same point the arrow itself sits at.
-            Cutout radius = arrow radius (36px) + 16px gap = 52px;
-            centre sits 20px in from each edge (radius minus the
-            arrow's own -16px offset, so it's concentric with it). */}
-        <div
-          className="absolute inset-0 flex overflow-hidden rounded-card border border-border/60 transition-colors group-hover:border-magenta"
-          style={{
-            maskImage:
-              "radial-gradient(circle 52px at calc(100% - 20px) calc(100% - 20px), transparent 52px, white 53px)",
-            WebkitMaskImage:
-              "radial-gradient(circle 52px at calc(100% - 20px) calc(100% - 20px), transparent 52px, white 53px)",
-          }}
-        >
-          <Image
-            src={course.image}
-            alt={course.imageAlt}
-            fill
-            sizes={imageSizes}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top, so the photo stays visible behind the badges. */}
-          <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/98 via-25% to-transparent" />
-          <div className="relative mt-auto flex w-full flex-col gap-4 p-6 sm:p-6">
-            <div className="flex flex-wrap items-center gap-2 text-[10px]">
-              <Badge tone="school">{course.school}</Badge>
-              <Badge tone="school">{course.duration}</Badge>
-            </div>
-            <h3 className="text-card-title font-semibold text-white">
-              {course.title}
-            </h3>
-            <p className="text-default text-pale-blue">{course.description}</p>
-            <div className="mt-1">
-              <p className="text-default font-semibold text-white">School:</p>
-              <p className="text-default text-pale-blue">{course.school}</p>
-            </div>
-          </div>
-        </div>
-
-        <svg
-          aria-hidden="true"
-          className="absolute z-10 text-border/60 transition-colors group-hover:text-magenta"
-          width={104}
-          height={104}
-          style={{ right: -32, bottom: -32 }}
-          viewBox="0 0 104 104"
-        >
-          <circle
-            cx="52"
-            cy="52"
-            r="51.5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1"
-            pathLength={100}
-            strokeDasharray="37.57 62.43"
-            strokeDashoffset={43.72}
-          />
-        </svg>
-
-        <ArrowGlyph
-          tone={arrowTone}
-          className="absolute -bottom-4 -right-4 z-10"
-        />
-      </Link>
-    );
-  }
+  const isExpanded = variant === "expanded";
 
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className={cn(
-        "group relative flex overflow-hidden rounded-card",
-        className,
-      )}
+      className={cn("group relative block", className)}
     >
-      <Image
-        src={course.image}
-        alt={course.imageAlt}
-        fill
-        sizes={imageSizes}
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
-      />
-      {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top */}
-      <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/20 via-85% to-transparent" />
-      <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-6">
-        <div>
-          <h3 className="text-lg font-semibold text-white sm:text-card-title">
-            {course.title}
-          </h3>
-          <p className="mt-2 max-w-xs text-default text-pale-blue">
-            {course.description}
-          </p>
-        </div>
-        <ArrowGlyph tone={arrowTone} />
+      <div
+        className={cn(
+          "absolute inset-0 flex overflow-hidden rounded-card border border-border/60 transition-colors",
+          isExpanded ? "group-hover:border-magenta" : "group-hover:border-white/40",
+        )}
+        style={{
+          maskImage:
+            "radial-gradient(circle 52px at calc(100% - 20px) calc(100% - 20px), transparent 52px, white 53px)",
+          WebkitMaskImage:
+            "radial-gradient(circle 52px at calc(100% - 20px) calc(100% - 20px), transparent 52px, white 53px)",
+        }}
+      >
+        <Image
+          src={course.image}
+          alt={course.imageAlt}
+          fill
+          sizes={imageSizes}
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+
+        {isExpanded ? (
+          <>
+            {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top */}
+            <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/98 via-25% to-transparent" />
+            <div className="relative mt-auto flex w-full flex-col gap-4 p-6 pr-16">
+              <div className="flex flex-wrap items-center gap-2 text-[10px]">
+                <Badge tone="school">{course.school}</Badge>
+                <Badge tone="school">{course.duration}</Badge>
+              </div>
+              <h3 className="text-card-title font-semibold text-white">
+                {course.title}
+              </h3>
+              <p className="text-default text-pale-blue">{course.description}</p>
+              <div className="mt-1">
+                <p className="text-default font-semibold text-white">School:</p>
+                <p className="text-default text-pale-blue">{course.school}</p>
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Multi-stop gradient: solid navy band at bottom fading to transparent at top */}
+            <div className="absolute inset-0 bg-linear-to-t from-deep from-5% via-deep/20 via-85% to-transparent" />
+            <div className="relative mt-auto flex w-full items-end justify-between gap-4 p-6 pr-16">
+              <div>
+                <h3 className="text-lg font-semibold text-white sm:text-card-title">
+                  {course.title}
+                </h3>
+                <p className="mt-2 max-w-xs text-default text-pale-blue">
+                  {course.description}
+                </p>
+              </div>
+            </div>
+          </>
+        )}
       </div>
+
+      <svg
+        aria-hidden="true"
+        className={cn(
+          "absolute z-10 text-border/60 transition-colors",
+          isExpanded ? "group-hover:text-magenta" : "group-hover:text-white/40",
+        )}
+        width={104}
+        height={104}
+        style={{ right: -32, bottom: -32 }}
+        viewBox="0 0 104 104"
+      >
+        <circle
+          cx="52"
+          cy="52"
+          r="51.5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1"
+          pathLength={100}
+          strokeDasharray="37.57 62.43"
+          strokeDashoffset={56.28}
+        />
+      </svg>
+
+      <ArrowGlyph
+        tone={arrowTone}
+        className="absolute -bottom-4 -right-4 z-10"
+      />
     </Link>
   );
 }
+
