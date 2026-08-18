@@ -1,69 +1,49 @@
 "use client";
 
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y, Keyboard } from "swiper/modules";
 import Image from "next/image";
 import type { GalleryImage } from "@/data/gallery";
-import CircleArrowButton from "@/components/ui/CircleArrowButton";
+
+import "swiper/css";
+
+interface CoursesGalleryStripProps {
+  images: GalleryImage[];
+}
 
 /**
- * Horizontally scrollable, snap-aligned image strip. Native scroll
- * gives free touch/swipe/trackpad support; the arrow buttons scroll
- * by one card for mouse/keyboard users.
+ * Horizontally draggable Swiper image strip.
+ * Offers smooth grabbable touch/mouse drag support and transitions.
  */
 export default function CoursesGalleryStrip({
   images,
-}: {
-  images: GalleryImage[];
-}) {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-
-  const scrollByCard = (direction: 1 | -1) => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-    const card = scroller.querySelector<HTMLElement>("[data-gallery-item]");
-    const step = (card?.offsetWidth ?? 280) + 24;
-    scroller.scrollBy({ left: step * direction, behavior: "smooth" });
-  };
-
+}: CoursesGalleryStripProps) {
   return (
-    <div>
-      <div
-        ref={scrollerRef}
-        className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2"
-        role="group"
-        aria-label="Course gallery"
+    <div className="w-full">
+      <Swiper
+        modules={[A11y, Keyboard]}
+        spaceBetween={24}
+        slidesPerView={5}
+        grabCursor={true}
+        loop={true}
+        keyboard={{ enabled: true }}
+        className="w-full h-[45vw] sm:h-[28vw] lg:h-80"
       >
         {images.map((image) => (
-          <div
+          <SwiperSlide
             key={image.id}
-            data-gallery-item
-            className="relative aspect-square w-[45vw] shrink-0 snap-start overflow-hidden rounded-card sm:w-[28vw] lg:w-77.5 lg:h-80"
+            className="relative w-[45vw] sm:w-[28vw] lg:w-77.5 h-full rounded-card overflow-hidden"
           >
             <Image
               src={image.src}
               alt={image.alt}
               fill
-              // sizes="(min-width: 1024px) 220px, 40vw"
               className="object-cover"
+              sizes="(min-width: 1024px) 310px, (min-width: 640px) 28vw, 45vw"
             />
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
-
-      <div className="mt-6 flex justify-center gap-3">
-        <CircleArrowButton
-          direction="prev"
-          variant="outline"
-          label="Scroll gallery left"
-          onClick={() => scrollByCard(-1)}
-        />
-        <CircleArrowButton
-          direction="next"
-          variant="filled"
-          label="Scroll gallery right"
-          onClick={() => scrollByCard(1)}
-        />
-      </div>
+      </Swiper>
     </div>
   );
 }

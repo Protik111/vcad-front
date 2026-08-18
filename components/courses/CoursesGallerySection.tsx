@@ -28,9 +28,9 @@ export default function CoursesGallerySection() {
       </Container>
 
       <div className="relative mt-12 sm:mt-16 bg-[url('/images/cta-background.png')] bg-right bg-no-repeat bg-size-[405px]">
-        <Container>
-          <CoursesGalleryStrip images={courseGalleryImages} />
-        </Container>
+        {/* <Container> */}
+        <CoursesGalleryStrip images={courseGalleryImages} />
+        {/* </Container> */}
       </div>
     </section>
   );
