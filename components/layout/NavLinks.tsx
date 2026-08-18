@@ -20,7 +20,9 @@ export default function NavLinks() {
       <ul className="flex items-center gap-9">
         {links.map((link) => {
           const isActive =
-            link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+            link.href === "/"
+              ? pathname === "/"
+              : pathname.startsWith(link.href);
 
           return (
             <li key={link.href}>
@@ -28,16 +30,24 @@ export default function NavLinks() {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "flex items-center gap-1 text-default font-medium uppercase tracking-[0.06em] transition-colors hover:text-pink",
+                  "flex items-center gap-1 text-default font-medium uppercase tracking-[0.06em] transition-colors hover:text-plum",
                   isActive ? "text-white" : "text-text",
                 )}
               >
                 {!isHome && (
-                  <span aria-hidden="true" className="text-pink">/</span>
+                  <span aria-hidden="true" className="text-plum">
+                    /
+                  </span>
                 )}
                 {link.label}
                 {link.hasSubmenu && (
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    aria-hidden="true"
+                  >
                     <path
                       d="m2.5 3.5 2.5 3 2.5-3"
                       stroke="currentColor"

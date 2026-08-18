@@ -30,7 +30,7 @@ export default function CircleArrowButton({
         "flex h-14 w-14 p-[18px] shrink-0 items-center justify-center rounded-arrow border transition-colors disabled:cursor-not-allowed disabled:opacity-40",
         variant === "filled"
           ? "border-transparent bg-[#912491] text-white hover:brightness-110"
-          : "border-border bg-card-alt text-white hover:border-pink",
+          : "border-border bg-card-alt text-white hover:border-plum",
       )}
     >
       <svg

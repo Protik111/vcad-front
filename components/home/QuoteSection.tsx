@@ -22,7 +22,7 @@ export default function QuoteSection() {
             />
             <h2 className="text-3xl font-bold leading-[1.15] text-white sm:text-4xl lg:text-section">
               A world where{" "}
-              <span className="bg-linear-to-r from-pink to-magenta bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-plum to-magenta bg-clip-text text-transparent">
                 everyone <br /> has the opportunity
               </span>{" "}
               to

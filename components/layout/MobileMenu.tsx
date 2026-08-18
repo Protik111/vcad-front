@@ -49,11 +49,17 @@ export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
         aria-controls={panelId}
         aria-label="Open menu"
         className={cn(
-          "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink",
+          "flex h-11 w-11 shrink-0 items-center justify-center cursor-pointer rounded-full border border-border text-white transition-colors hover:border-plum",
           !alwaysVisible && "lg:hidden",
         )}
       >
-        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+        <svg
+          width="18"
+          height="14"
+          viewBox="0 0 18 14"
+          fill="none"
+          aria-hidden="true"
+        >
           <path
             d="M1 1h16M1 7h16M1 13h16"
             stroke="currentColor"
@@ -83,16 +89,16 @@ export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-pink"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-white transition-colors hover:border-plum"
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                {/* <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path
                     d="m2 2 12 12M14 2 2 14"
                     stroke="currentColor"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                   />
-                </svg>
+                </svg> */}
               </button>
             </div>
 
@@ -103,7 +109,7 @@ export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="text-2xl font-semibold text-white transition-colors hover:text-pink"
+                      className="text-2xl font-semibold text-white transition-colors hover:text-plum"
                     >
                       {link.label}
                     </Link>
@@ -113,7 +119,11 @@ export default function MobileMenu({ alwaysVisible = false }: MobileMenuProps) {
             </nav>
 
             {!isHome && (
-              <Button href="/apply" variant="solid" className="mt-auto justify-center">
+              <Button
+                href="/apply"
+                variant="solid"
+                className="mt-auto justify-center"
+              >
                 Apply Now
               </Button>
             )}

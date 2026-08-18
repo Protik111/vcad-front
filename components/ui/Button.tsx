@@ -40,8 +40,8 @@ function ArrowIcon({ variant }: { variant: "filled" | "outline" }) {
       className={cn(
         "flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-transform group-hover:translate-x-0.5",
         variant === "filled"
-          ? "bg-gradient-to-br from-magenta to-pink text-white"
-          : "border border-pink text-pink",
+          ? "bg-gradient-to-br from-magenta to-plum text-white"
+          : "border border-plum text-plum",
       )}
     >
       <svg
