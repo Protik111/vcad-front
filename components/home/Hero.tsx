@@ -21,7 +21,7 @@ export default function Hero() {
     <section className="overflow-x-clip py-8 sm:py-12 lg:py-25">
       <Container className="grid items-center gap-16 lg:grid-cols-2 lg:gap-6">
         <div className="max-w-xl">
-          <h1 className="text-[110px] font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-[110px]">
+          <h1 className="text-[110px] font-bold uppercase leading-[1.2] tracking-tight text-white sm:text-6xl lg:text-[110px]">
             Welcome
             <br />
             to VCAD
@@ -33,14 +33,14 @@ export default function Hero() {
             approach. Located in London&rsquo;s Design District, we have
             valuable connections within our industry. Search our latest courses.
           </p>
-          <Button href="/courses" variant="solid" className="mt-8">
+          <Button href="/courses" variant="solid" className="mt-15">
             Explore Courses
           </Button>
         </div>
 
         <div className="relative mx-auto aspect-19/20 w-full max-w-lg lg:mx-0 lg:max-w-none">
           {/* Bottom layer: sunglasses-pair (left) and book (right) photos, sit behind the top two. */}
-          <div className="absolute top-[52%] bottom-0 left-[22%] z-0 h-[336px] w-[229px] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute top-[52%] bottom-0 left-[22%] z-0 h-[336px] w-[229px] overflow-hidden border border-magenta shadow-2xl">
             <Image
               src="/images/hero-marketing.jpg"
               alt=""
@@ -49,7 +49,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute bottom-[-5%] right-[-11%] z-0 h-[411px] w-[280px] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute bottom-[-5%] right-[-11%] z-0 h-[411px] w-[280px] overflow-hidden border border-magenta shadow-2xl">
             <Image
               src="/images/hero-media.jpg"
               alt=""
@@ -60,7 +60,7 @@ export default function Hero() {
           </div>
 
           {/* Top layer: fashion (left) and photography (right) photos, overlap on top of the bottom two. */}
-          <div className="absolute left-0 top-[2%] z-10 h-[416px] w-[283px] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute left-0 top-[2%] z-10 h-[416px] w-[283px] overflow-hidden border border-magenta shadow-2xl">
             <Image
               src="/images/hero-fashion.jpg"
               alt=""
@@ -69,7 +69,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute right-[36px] top-[2%] z-10 h-[376px] w-[257px] overflow-hidden border border-pink/60 shadow-2xl">
+          <div className="absolute right-[36px] top-[2%] z-10 h-[376px] w-[257px] overflow-hidden border border-magenta shadow-2xl">
             <Image
               src="/images/hero-photography.jpg"
               alt=""

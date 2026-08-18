@@ -32,7 +32,7 @@ export default function Tag({
   return (
     <span
       className={cn(
-        "inline-block whitespace-nowrap px-6 py-4.5 text-micro font-extrabold uppercase text-2xl tracking-[0.08em] shadow-lg",
+        "inline-block whitespace-nowrap px-6 py-4 text-micro font-extrabold uppercase text-2xl tracking-[0.08em] shadow-lg",
         TONES[tone],
         className,
       )}
