@@ -3,6 +3,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SocialIcon from "@/components/ui/SocialIcon";
 import { footerLinks, footerContact, socialLinks } from "@/data/footer";
+import VerticalLines from "../ui/VerticalLines";
 
 const accreditationBadges = [
   {
@@ -31,7 +32,9 @@ const accreditationBadges = [
  */
 export default function Footer() {
   return (
+    
     <footer className="border-t border-border/60 bg-deep">
+    <VerticalLines>
       <Container className="py-14 sm:py-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-8">
@@ -106,6 +109,8 @@ export default function Footer() {
           <p>All rights reserved.</p>
         </div>
       </Container>
+    </VerticalLines>
     </footer>
+
   );
 }

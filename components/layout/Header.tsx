@@ -6,6 +6,7 @@ import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
+import VerticalLines from "../ui/VerticalLines";
 
 /**
  * Shared site header. Rendered once in the root layout so no page
@@ -19,6 +20,7 @@ export default function Header() {
 
   return (
     <header className="bg-[#040D3D]">
+      <VerticalLines>
       <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
         <Logo />
 
@@ -37,6 +39,7 @@ export default function Header() {
           <MobileMenu alwaysVisible={isHome} />
         </div>
       </Container>
+      </VerticalLines>
     </header>
   );
 }

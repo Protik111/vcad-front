@@ -6,6 +6,7 @@ import CourseGrid from "@/components/courses/CourseGrid";
 import CoursesGallerySection from "@/components/courses/CoursesGallerySection";
 import CtaBanner from "@/components/shared/CtaBanner";
 import { getCourses } from "@/data/courses";
+import VerticalLines from "@/components/ui/VerticalLines";
 
 export const metadata: Metadata = {
   title: "Explore Our Courses",
@@ -18,6 +19,8 @@ export default function CoursesPage() {
 
   return (
     <>
+    <VerticalLines>
+
       <CoursesHero />
 
       <section className="py-20 sm:py-28">
@@ -42,6 +45,7 @@ export default function CoursesPage() {
 
       <CoursesGallerySection />
       <CtaBanner />
+      </VerticalLines>
     </>
   );
 }

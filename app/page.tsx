@@ -11,6 +11,7 @@ import { getCourses } from "@/data/courses";
 import { campuses } from "@/data/campuses";
 import { testimonials } from "@/data/testimonials";
 import { stories } from "@/data/stories";
+import VerticalLines from "@/components/ui/VerticalLines";
 
 export const metadata: Metadata = {
   title: "VCAD — Victoria College of Arts and Design",
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <VerticalLines>
       <CoursesShowcase courses={courses} />
       <QuoteSection />
       <CampusesCarousel campuses={campuses} />
@@ -31,6 +33,7 @@ export default function Home() {
       <PartnersSection />
       <StoriesSection stories={stories} />
       <CtaBanner />
+      </VerticalLines>
     </>
   );
 }

@@ -3,6 +3,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import DecorativeRings from "@/components/ui/DecorativeRings";
 import CoursesGalleryStrip from "./CoursesGalleryStrip";
 import { courseGalleryImages } from "@/data/gallery";
+import VerticalLines from "../ui/VerticalLines";
 
 /**
  * "Our Gallery" section: centered heading/copy above the interactive
@@ -10,8 +11,9 @@ import { courseGalleryImages } from "@/data/gallery";
  */
 export default function CoursesGallerySection() {
   return (
-    <section className="relative overflow-hidden bg-deep py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-deep">
       {/* <DecorativeRings className="right-[-100px] top-0 h-96 w-96" /> */}
+<VerticalLines className=" py-20 sm:py-28">
 
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -32,6 +34,7 @@ export default function CoursesGallerySection() {
         <CoursesGalleryStrip images={courseGalleryImages} />
         {/* </Container> */}
       </div>
+      </VerticalLines>
     </section>
   );
 }
