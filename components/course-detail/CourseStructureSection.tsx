@@ -50,7 +50,7 @@ export default function CourseStructureSection({
                 aria-selected={activeYear === index}
                 onClick={() => setActiveYear(index)}
                 className={cn(
-                  "whitespace-nowrap rounded-pill px-5 py-2.5 text-default font-medium transition-colors",
+                  "whitespace-nowrap cursor-pointer rounded-pill px-5 py-2.5 text-default font-medium transition-colors",
                   activeYear === index
                     ? "bg-plum text-white"
                     : "text-pale-blue hover:text-white",

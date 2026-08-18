@@ -55,7 +55,7 @@ function ModuleRow({
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={panelId}
-        className="flex w-full items-center justify-between gap-4 text-left"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
       >
         <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <span className="text-default font-semibold text-white">

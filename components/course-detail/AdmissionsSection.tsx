@@ -52,7 +52,7 @@ export default function AdmissionsSection({
                   aria-selected={isActive}
                   onClick={() => setActiveCategory(index)}
                   className={cn(
-                    "relative whitespace-nowrap px-5 py-4.5 text-left text-default font-medium transition-colors lg:whitespace-normal lg:border-b lg:border-dotted lg:border-[#2262ee] lg:last:border-b-0",
+                    "relative cursor-pointer whitespace-nowrap px-5 py-4.5 text-left text-default font-medium transition-colors lg:whitespace-normal lg:border-b lg:border-dotted lg:border-[#2262ee] lg:last:border-b-0",
                     isActive
                       ? "bg-plum text-white"
                       : "text-pale-blue hover:text-white",

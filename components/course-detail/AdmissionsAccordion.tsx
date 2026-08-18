@@ -48,7 +48,7 @@ function Row({
         onClick={onToggle}
         aria-expanded={isOpen}
         aria-controls={panelId}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left sm:px-8"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left sm:px-8"
       >
         <span className="text-lg font-semibold text-white">{item.title}</span>
         <span aria-hidden="true" className="text-xl font-light text-pale-blue">
