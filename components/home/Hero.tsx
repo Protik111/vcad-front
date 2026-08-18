@@ -40,7 +40,7 @@ export default function Hero() {
 
         <div className="relative mx-auto aspect-19/20 w-full max-w-lg lg:mx-0 lg:max-w-none">
           {/* Bottom layer: sunglasses-pair (left) and book (right) photos, sit behind the top two. */}
-          <div className="absolute top-[52%] bottom-0 left-[22%] z-0 h-[336px] w-[229px] overflow-hidden border border-magenta shadow-2xl">
+          <div className="absolute top-[52%] bottom-0 left-[22%] z-0 h-[341px] w-[229px] overflow-hidden border border-magenta shadow-2xl">
             <Image
               src="/images/hero-marketing.jpg"
               alt=""
