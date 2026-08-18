@@ -15,21 +15,21 @@ export default function CoursesHero() {
       <Container className="relative bg-[url('/images/cta-background.png')] bg-right bg-no-repeat bg-size-[405px]">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <div className="hidden w-full items-start justify-between md:flex">
-            <div className="relative -mt-2 h-28 w-32 shrink-0 overflow-hidden shadow-2xl lg:h-32 lg:w-36">
+            <div className="relative shrink-0 overflow-hidden -mt-10 -ml-16">
               <Image
-                src="/images/courses-hero-left.jpg"
+                src="/images/courses-hero-left-2.png"
                 alt=""
-                fill
-                sizes="210px"
+                width={210}
+                height={310}
                 className="object-cover"
               />
             </div>
-            <div className="relative mt-4 left-35 top-20 shrink-0 overflow-hidden shadow-2xl lg:h-40 lg:w-32">
+            <div className="relative mt-4 left-60 top-20 shrink-0 overflow-hidden">
               <Image
                 src="/images/story-life-borough.jpg"
                 alt=""
-                fill
-                sizes="195px"
+                width={210}
+                height={210}
                 className="object-cover"
               />
             </div>
