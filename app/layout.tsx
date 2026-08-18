@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   },
   description:
     "Victoria College of Arts and Design (VCAD) is a creative college in London's Design District, offering courses in fashion, graphic design, media, business and marketing.",
+  icons: {
+    icon: "/images/logo.svg",
+    shortcut: "/images/logo.svg",
+    apple: "/images/logo.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
