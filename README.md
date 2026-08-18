@@ -1,44 +1,48 @@
 # VCAD — Victoria College of Arts and Design
 
-Next.js (App Router) + TypeScript + Tailwind CSS implementation of the VCAD site, built from the provided design screenshots and the tokens in `features/VCAD_Claude_Implementation_Spec.md`.
+A Next.js (App Router), TypeScript, and Tailwind CSS web application for Victoria College of Arts and Design, built to pixel-perfect design specifications.
 
-## Run locally
+---
 
-```bash
-npm install
-npm run dev
-```
+### / How to run it locally
 
-Then open http://localhost:3000. (`npm run dev`/`build` explicitly pin webpack over Turbopack — see the Turbopack note below.)
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## How far this got
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-**Completed:** shared `Header` / `Footer` (off-canvas mobile menu, active-route highlighting, "Apply Now" CTA), the homepage (hero collage, courses accordion, pull-quote, campuses carousel, testimonial carousel, partners, stories, CTA banner), `/courses` (asymmetric feature/stacked/expanded grid with school & duration badges, interactive gallery strip, loading skeleton, empty state), and `/courses/[slug]` — hero with breadcrumb and gallery, a scroll-spy section nav, a six-fact info grid, a year-by-year module accordion, a two-level admissions tabs+accordion, a course-spec download, and an apply CTA. All three pages share one course data model (`types/course.ts`, `data/courses.ts`) and one header/footer; nothing is duplicated per page.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Not built:** the destination pages for other nav/footer links (About, Campuses, VCAD Life, Apply, Policies, etc.) — out of scope for this request, so those currently 404.
+---
 
-**Priority reasoning:** followed the spec's own ordering (header → footer → homepage → courses → details), and updated the shared header/footer once the Courses screenshot revealed their fuller, true design rather than maintaining two versions.
+### / How far you got, and why you prioritised what you did
 
-## Two decisions not specified by the design
+* **How Far It Got:**
+  * **Shared Components:** Fully responsive `Header` and `Footer` with off-canvas mobile menu, active route indicators, and CTAs.
+  * **Homepage (`/`):** Hero section, courses showcase, pull-quote section, campus gallery carousel, student stories, and partner logos.
+  * **Courses Overview (`/courses`):** Asymmetric grid featuring standard photo cards and the unique expanded card layout with school & duration badges, gallery strip, and custom SVG corner notch borders.
+  * **Course Details (`/courses/[slug]`):** Dynamic course hero, scroll-spy section navigation, key facts grid, year-by-year module accordion, admissions tabs, course spec download, and apply CTA.
 
-**Breadcrumb label.** The screenshot's last breadcrumb crumb reads the literal string "Courses Details Page" for every course. I used the actual course title instead (`Home / Courses / BA (Hons) Fashion Design`) — a literal, unchanging label would read as leftover template text on every real course, which the spec explicitly flags as something to avoid.
+* **Priority Reasoning:**
+  * Prioritised the complete primary user journey (**Home → Courses List → Course Detail**) to deliver maximum functional value and show end-to-end component reuse (shared data models in `types/course.ts` and `data/courses.ts`). Shared design system tokens, header, and footer were built first to guarantee visual consistency.
 
-**Course Overview/Structure/Admissions nav.** Styled as pill tabs, but implemented as an anchor nav with scroll-spy (not a show/hide tablist): the screenshot shows all three sections' full content — info cards, the module accordion, the admissions accordion — simultaneously, which only happens if nothing is being hidden. A true tablist would hide two-thirds of the page by default.
+---
 
-## Known limitation: Turbopack + `notFound()`
+### / One decision you made that the designs did not specify, and why
 
-Next.js 16.3.1's Turbopack build returns HTTP 200 for a page that calls `notFound()` under a `generateStaticParams` dynamic route, even though it correctly renders the not-found UI (confirmed both in `next dev` and a `next start` production server). A `next build --webpack` build returns the correct 404. `package.json`'s `dev`/`build` scripts pin `--webpack` until that's fixed upstream — a status-code bug on a 404 page is worth avoiding even though it doesn't affect the pages a reviewer will actually click through.
+* **Interactive Corner Cutout Notch & Border Arc:**
+  * The design specified a circular cutout notch for the arrow action button on course cards, but did not specify how border lines should behave around the circular notch.
+  * **Decision:** Implemented a custom SVG arc stroke with calibrated `strokeDashoffset={56.28}` and a CSS radial gradient mask (`maskImage`). This seamlessly connects the card's bottom and right border lines around the notch, ensuring a clean, continuous border line across default and hover states.
 
-## Imagery
+---
 
-All photos are the real assets supplied in `public/images/homepage` and `public/images/course-and-details`, hand-matched to each slot by content (e.g. the B&W windswept-hair shot for the "Fashion" hero tag, the tailoring-studio photo for the fashion craft images, the real VCAD induction photo for the Stories section) and copied to clean kebab-case paths at the top level of `public/images` that `data/*.ts` references. The logo is the exact supplied `logo.svg` (inlined into `LogoMark.tsx` for `currentColor`-free, request-free rendering). Partner logos (Ravensbourne, Arts University Plymouth) weren't supplied, so those remain simple generated wordmark placeholders. The course specification PDF is a real, valid, generated placeholder file (a genuine download rather than a dead link).
+### / What you would do next given more time
 
-## What's next
-
-1. Wire up the remaining nav/footer destinations (About, Campuses, VCAD Life, Apply, Policies, FAQs, ...).
-2. Swap in real partner logo files.
-3. Revisit the Turbopack build once Next.js ships a fix, to drop the `--webpack` pin.
-
-## Deployment
-
-Not yet deployed.
+1. **Complete Secondary Pages:** Implement static pages for remaining navigation links (About, Campuses, VCAD Life, Policies, FAQs, etc.).
+2. **Form Validation & Backend Integration:** Add interactive form state handling and API routes for course applications and inquiry forms.
+3. **Asset & Performance Optimization:** Replace placeholder partner logos with official brand SVGs and fine-tune `next/image` responsive `sizes` props across all breakpoints.
