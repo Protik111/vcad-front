@@ -9,6 +9,7 @@ import CourseSpecificationCTA from "@/components/course-detail/CourseSpecificati
 import ApplyCtaSection from "@/components/course-detail/ApplyCtaSection";
 import CtaBanner from "@/components/shared/CtaBanner";
 import { getCourseBySlug, getCourses } from "@/data/courses";
+import VerticalLines from "@/components/ui/VerticalLines";
 
 interface CoursePageProps {
   params: Promise<{ slug: string }>;
@@ -58,7 +59,9 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
       )}
       <CourseSpecificationCTA />
       <ApplyCtaSection />
-      <CtaBanner />
+      <VerticalLines>
+        <CtaBanner />
+      </VerticalLines>
     </>
   );
 }

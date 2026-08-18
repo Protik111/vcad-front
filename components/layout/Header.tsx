@@ -19,7 +19,7 @@ export default function Header() {
   const isHome = pathname === "/";
 
   return (
-    <header className="bg-[#040D3D]">
+    <header className="relative z-50 bg-[#040D3D]">
       <VerticalLines>
         <Container className="flex h-20 items-center justify-between gap-6 sm:h-24">
           <Logo />
